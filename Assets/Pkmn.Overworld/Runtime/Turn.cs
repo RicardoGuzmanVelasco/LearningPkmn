@@ -6,16 +6,20 @@ namespace Pkmn.Overworld.Runtime
 {
     public class Turn : MonoBehaviour
     {
-        Vector2Int lookingTowards = Vector2Int.down;
+        Vector2Int lookingTowards;
 
         public event Action JustTurned = () => { };
         
         [SerializeField]
         LookingSprites sprites;
 
-        void Update()
+        void Start()
         {
-            var newDirection = WhereIsLookingTowards() ?? lookingTowards;
+            LookTowards(Vector2Int.down);
+        }
+
+        public void LookTowards(Vector2Int newDirection)
+        {
             if (newDirection != lookingTowards)
                 JustTurned();
             
@@ -28,20 +32,5 @@ namespace Pkmn.Overworld.Runtime
             GetComponentInChildren<SpriteRenderer>().sprite = sprites.Of(lookingTowards);
             GetComponentInChildren<SpriteRenderer>().flipX = sprites.MustFlip(lookingTowards);
         }
-
-        Vector2Int? WhereIsLookingTowards()
-        {
-            if (Input.GetKey(KeyCode.UpArrow))
-                return Vector2Int.up;
-            if (Input.GetKey(KeyCode.DownArrow))
-                return Vector2Int.down;
-            if (Input.GetKey(KeyCode.LeftArrow)) 
-                return Vector2Int.left;
-            if (Input.GetKey(KeyCode.RightArrow))
-                return Vector2Int.right;
-
-            return null;
-        }
-
     }
 }
