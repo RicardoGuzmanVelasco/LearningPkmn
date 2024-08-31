@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.PlayerLoop;
 
 namespace Pkmn.Overworld.Runtime
@@ -20,6 +19,7 @@ namespace Pkmn.Overworld.Runtime
         void ChangeSprite()
         {
             GetComponentInChildren<SpriteRenderer>().sprite = sprites.Of(lookingTowards);
+            GetComponentInChildren<SpriteRenderer>().flipX = lookingTowards == Vector2Int.right;
         }
 
         Vector2Int? WhereIsLookingTowards()
@@ -36,23 +36,5 @@ namespace Pkmn.Overworld.Runtime
             return null;
         }
 
-    }
-    
-    [Serializable]
-    public struct LookingSprites
-    {
-        public Sprite up;
-        public Sprite down;
-        public Sprite left;
-
-        public Sprite Of(Vector2Int direction)
-            => direction switch
-            {
-                _ when direction == Vector2Int.up => up,
-                _ when direction == Vector2Int.down => down,
-                _ when direction == Vector2Int.left => left,
-                _ when direction == Vector2Int.right => left,
-                _ => throw new ArgumentOutOfRangeException()
-            };
     }
 }
