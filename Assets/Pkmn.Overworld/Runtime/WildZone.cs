@@ -2,7 +2,7 @@
 
 namespace Pkmn.Overworld.Runtime
 {
-    public class ASDgkjsdg : MonoBehaviour
+    public class WildZone : MonoBehaviour
     {
         void Awake()
         {
