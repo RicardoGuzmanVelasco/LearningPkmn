@@ -6,7 +6,7 @@ namespace Pkmn.Overworld.Runtime
 {
     public class jsdf : MonoBehaviour
     {
-        Vector2Int lookingTowards;
+        Vector2Int lookingTowards = Vector2Int.down;
 
         [SerializeField]
         LookingSprites sprites;
@@ -14,10 +14,7 @@ namespace Pkmn.Overworld.Runtime
         void Update()
         {
             lookingTowards = WhereIsLookingTowards() ?? lookingTowards;
-            ChangeSprite();
-
-            Debug.Log(lookingTowards);
-            
+            ChangeSprite();            
         }
 
         void ChangeSprite()
