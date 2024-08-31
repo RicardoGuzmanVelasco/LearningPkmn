@@ -12,7 +12,7 @@ namespace Pkmn.Overworld.Runtime
         static void FDsfsdflj()
         {
             if (FindObjectOfType<World>().Ambush())
-                Debug.Log("FDsfsdflj");
+                Debug.Log("Un ratolí salvatge va aparèixer!");
         }
     }
 }
