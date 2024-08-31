@@ -9,7 +9,13 @@ namespace Pkmn.Overworld.Runtime
 
         [SerializeField]
         LookingSprites sprites;
-        
+
+        public Vector2Int LookingTowards
+        {
+            set { lookingTowards = value; }
+            get { return lookingTowards; }
+        }
+
         void Update()
         {
             lookingTowards = WhereIsLookingTowards() ?? lookingTowards;
@@ -19,7 +25,7 @@ namespace Pkmn.Overworld.Runtime
         void ChangeSprite()
         {
             GetComponentInChildren<SpriteRenderer>().sprite = sprites.Of(lookingTowards);
-            GetComponentInChildren<SpriteRenderer>().flipX = lookingTowards == Vector2Int.right;
+            GetComponentInChildren<SpriteRenderer>().flipX = sprites.MustFlip(lookingTowards);
         }
 
         Vector2Int? WhereIsLookingTowards()
