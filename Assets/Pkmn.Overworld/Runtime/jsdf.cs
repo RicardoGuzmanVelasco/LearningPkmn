@@ -14,19 +14,12 @@ namespace Pkmn.Overworld.Runtime
         void Update()
         {
             lookingTowards = WhereIsLookingTowards() ?? lookingTowards;
-            ChangeSprite();            
+            ChangeSprite();
         }
 
         void ChangeSprite()
         {
-            GetComponentInChildren<SpriteRenderer>().sprite = lookingTowards switch
-            {
-                Vector2Int v when v == Vector2Int.up => sprites.up,
-                Vector2Int v when v == Vector2Int.down => sprites.down,
-                Vector2Int v when v == Vector2Int.left => sprites.left,
-                Vector2Int v when v == Vector2Int.right => sprites.left,
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            GetComponentInChildren<SpriteRenderer>().sprite = sprites.Of(lookingTowards);
         }
 
         Vector2Int? WhereIsLookingTowards()
@@ -51,5 +44,15 @@ namespace Pkmn.Overworld.Runtime
         public Sprite up;
         public Sprite down;
         public Sprite left;
+
+        public Sprite Of(Vector2Int direction)
+            => direction switch
+            {
+                _ when direction == Vector2Int.up => up,
+                _ when direction == Vector2Int.down => down,
+                _ when direction == Vector2Int.left => left,
+                _ when direction == Vector2Int.right => left,
+                _ => throw new ArgumentOutOfRangeException()
+            };
     }
 }
