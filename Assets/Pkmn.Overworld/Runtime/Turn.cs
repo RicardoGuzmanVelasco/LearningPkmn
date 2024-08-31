@@ -1,18 +1,25 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.PlayerLoop;
 
 namespace Pkmn.Overworld.Runtime
 {
-    public class jsdf : MonoBehaviour
+    public class Turn : MonoBehaviour
     {
         Vector2Int lookingTowards = Vector2Int.down;
 
+        public event Action JustTurned = () => { };
+        
         [SerializeField]
         LookingSprites sprites;
 
         void Update()
         {
-            lookingTowards = WhereIsLookingTowards() ?? lookingTowards;
+            var newDirection = WhereIsLookingTowards() ?? lookingTowards;
+            if (newDirection != lookingTowards)
+                JustTurned();
+            
+            lookingTowards = newDirection;
             ChangeSprite();
         }
 
