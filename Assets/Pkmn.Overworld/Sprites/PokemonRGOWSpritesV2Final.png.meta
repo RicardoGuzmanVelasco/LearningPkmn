@@ -130,8 +130,8 @@ TextureImporter:
         y: 120
         width: 16
         height: 16
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -8186,6 +8186,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PokemonRGOWSpritesV2Final_384
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 817
+        height: 137
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d90313d518ac6499625e5d5185f012
+      internalID: -830627174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -8514,6 +8535,7 @@ TextureImporter:
       PokemonRGOWSpritesV2Final_381: 845976834
       PokemonRGOWSpritesV2Final_382: 806206642
       PokemonRGOWSpritesV2Final_383: -454675495
+      PokemonRGOWSpritesV2Final_384: -830627174
       PokemonRGOWSpritesV2Final_39: 914293220
       PokemonRGOWSpritesV2Final_4: -228649389
       PokemonRGOWSpritesV2Final_40: 522506496
