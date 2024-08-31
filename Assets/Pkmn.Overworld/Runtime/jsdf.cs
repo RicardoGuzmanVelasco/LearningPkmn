@@ -5,14 +5,16 @@ namespace Pkmn.Overworld.Runtime
 {
     public class jsdf : MonoBehaviour
     {
+        Vector2Int lookingTowards;
+
         void Update()
         {
-            var direction = WhereIsLookingTowards();
-            
-            Debug.Log(direction);
+            lookingTowards = WhereIsLookingTowards() ?? lookingTowards;
+
+            Debug.Log(lookingTowards);
         }
 
-        Vector2Int WhereIsLookingTowards()
+        Vector2Int? WhereIsLookingTowards()
         {
             if (Input.GetKey(KeyCode.W))
                 return Vector2Int.up;
@@ -22,8 +24,8 @@ namespace Pkmn.Overworld.Runtime
                 return Vector2Int.left;
             if (Input.GetKey(KeyCode.D))
                 return Vector2Int.right;
-            
-            return Vector2Int.zero;
+
+            return null;
         }
     }
 }
