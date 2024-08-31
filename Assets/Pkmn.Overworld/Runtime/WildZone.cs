@@ -6,7 +6,18 @@ namespace Pkmn.Overworld.Runtime
     {
         void Awake()
         {
-            FindObjectOfType<Turn>().JustTurned += () => Debug.Log("Just turned");
+            FindObjectOfType<Turn>().JustTurned += () => FDsfsdflj();
+        }
+
+        static void FDsfsdflj()
+        {
+            if (Encounter())
+                Debug.Log("FDsfsdflj");
+        }
+
+        static bool Encounter()
+        {
+            return Random.Range(0, 100) < 10;
         }
     }
 }
