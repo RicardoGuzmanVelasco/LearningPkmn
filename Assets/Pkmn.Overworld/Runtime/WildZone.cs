@@ -11,7 +11,7 @@ namespace Pkmn.Overworld.Runtime
 
         static void FDsfsdflj()
         {
-            if (FindObjectOfType<World>().Encounter())
+            if (FindObjectOfType<World>().Ambush())
                 Debug.Log("FDsfsdflj");
         }
     }

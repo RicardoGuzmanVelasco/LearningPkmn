@@ -4,9 +4,10 @@ namespace Pkmn.Overworld.Runtime
 {
     public class World : MonoBehaviour
     {
-        public bool Encounter()
-        {
-            return Random.Range(0, 100) < 10;
-        }
+        public bool Ambush() => 
+            PlayerIsOverWildZone() &&
+            Random.Range(0, 100) < 10;
+
+        bool PlayerIsOverWildZone() => true;
     }
 }
