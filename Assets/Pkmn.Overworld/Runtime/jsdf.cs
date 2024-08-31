@@ -10,12 +10,6 @@ namespace Pkmn.Overworld.Runtime
         [SerializeField]
         LookingSprites sprites;
 
-        public Vector2Int LookingTowards
-        {
-            set { lookingTowards = value; }
-            get { return lookingTowards; }
-        }
-
         void Update()
         {
             lookingTowards = WhereIsLookingTowards() ?? lookingTowards;
