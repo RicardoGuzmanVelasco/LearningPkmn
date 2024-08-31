@@ -1,13 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace Pkmn.Overworld.Runtime
 {
     public class World : MonoBehaviour
     {
-        public bool Ambush() => 
-            PlayerIsOverWildZone() &&
-            Random.Range(0, 100) < 10;
+        public bool Ambush()
+            => Random.Range(0f, 1f) < At(RedCoords()).EncounterChance();
 
-        bool PlayerIsOverWildZone() => true;
+        static Vector2Int RedCoords()
+            => FindObjectOfType<Runtime.Input>().GetComponent<Being>().Coords;
+
+        Tile At(Vector2Int coords)
+            => FindObjectsOfType<Tile>()
+                .Single(x => x.GetComponent<Being>().Coords == coords);
+            
     }
 }
