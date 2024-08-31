@@ -11,13 +11,8 @@ namespace Pkmn.Overworld.Runtime
 
         static void FDsfsdflj()
         {
-            if (Encounter())
+            if (FindObjectOfType<World>().Encounter())
                 Debug.Log("FDsfsdflj");
-        }
-
-        static bool Encounter()
-        {
-            return Random.Range(0, 100) < 10;
         }
     }
 }
