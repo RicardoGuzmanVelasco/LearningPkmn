@@ -5,27 +5,37 @@ namespace Pkmn.Overworld.Runtime
 {
     public class Move : MonoBehaviour
     {
+        static readonly TimeSpan MovementTick = TimeSpan.FromSeconds(0.25);
         TimeSpan moveCooldown = TimeSpan.Zero;
-        
+
         void Update()
         {
             moveCooldown -= TimeSpan.FromSeconds(Time.deltaTime);
             if (moveCooldown > TimeSpan.Zero)
                 return;
-            
-            if (UnityEngine.Input.GetKey(KeyCode.UpArrow))
-                MoveTo(Vector2Int.up);
-            if (UnityEngine.Input.GetKey(KeyCode.DownArrow))
-                MoveTo(Vector2Int.down);
-            if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
-                MoveTo(Vector2Int.left);
-            if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
-                MoveTo(Vector2Int.right);
+
+            var directionToMove = WhereToMove();
+            if (directionToMove is not null)
+                BlockMovementAndMove(directionToMove.Value);
         }
 
-        void MoveTo(Vector2Int towards)
+        static Vector2Int? WhereToMove()
         {
-            moveCooldown = TimeSpan.FromSeconds(0.5);
+            if (UnityEngine.Input.GetKey(KeyCode.UpArrow))
+                return Vector2Int.up;
+            if (UnityEngine.Input.GetKey(KeyCode.DownArrow))
+                return Vector2Int.down;
+            if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
+                return Vector2Int.left;
+            if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
+                return Vector2Int.right;
+
+            return null;
+        }
+
+        void BlockMovementAndMove(Vector2Int towards)
+        {
+            moveCooldown = MovementTick;
             TurnAndMoveTowards(towards);
         }
 
