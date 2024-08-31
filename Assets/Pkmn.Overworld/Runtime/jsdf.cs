@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.PlayerLoop;
 
 namespace Pkmn.Overworld.Runtime
@@ -7,11 +8,28 @@ namespace Pkmn.Overworld.Runtime
     {
         Vector2Int lookingTowards;
 
+        [SerializeField]
+        LookingSprites sprites;
+        
         void Update()
         {
             lookingTowards = WhereIsLookingTowards() ?? lookingTowards;
+            ChangeSprite();
 
             Debug.Log(lookingTowards);
+            
+        }
+
+        void ChangeSprite()
+        {
+            GetComponentInChildren<SpriteRenderer>().sprite = lookingTowards switch
+            {
+                Vector2Int v when v == Vector2Int.up => sprites.up,
+                Vector2Int v when v == Vector2Int.down => sprites.down,
+                Vector2Int v when v == Vector2Int.left => sprites.left,
+                Vector2Int v when v == Vector2Int.right => sprites.left,
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
 
         Vector2Int? WhereIsLookingTowards()
@@ -27,5 +45,14 @@ namespace Pkmn.Overworld.Runtime
 
             return null;
         }
+
+    }
+    
+    [Serializable]
+    public struct LookingSprites
+    {
+        public Sprite up;
+        public Sprite down;
+        public Sprite left;
     }
 }
