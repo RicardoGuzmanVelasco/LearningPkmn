@@ -30,13 +30,13 @@ namespace Pkmn.Overworld.Runtime
 
         Vector2Int? WhereIsLookingTowards()
         {
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.UpArrow))
                 return Vector2Int.up;
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.DownArrow))
                 return Vector2Int.down;
-            if (Input.GetKey(KeyCode.A)) 
+            if (Input.GetKey(KeyCode.LeftArrow)) 
                 return Vector2Int.left;
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.RightArrow))
                 return Vector2Int.right;
 
             return null;
