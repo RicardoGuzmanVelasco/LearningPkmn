@@ -6,7 +6,6 @@ namespace Pkmn.Overworld.Runtime
     public class Tile : MonoBehaviour
     {
         [SerializeField] bool isHighGrass;
-        public bool IsWildZone => isHighGrass;
         
         public Vector2Int Coords => GetComponent<IsInTheWorld>().Coords; 
 
