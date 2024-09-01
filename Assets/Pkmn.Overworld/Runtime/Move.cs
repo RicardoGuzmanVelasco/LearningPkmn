@@ -29,16 +29,19 @@ namespace Pkmn.Overworld.Runtime
         {
             GetComponent<Turn>().LookTowards(towards);
 
-            if(!FindObjectOfType<World>().IsNavigationable(ADfjk(towards)))
-                Debug.Log("hhhnng");
-            
+            if(FindObjectOfType<World>().IsNavigationable(Destiny(towards)))
+                MoveTo(towards);
+            else
+                Debug.Log("hggngg");
+        }
+
+        void MoveTo(Vector2Int towards)
+        {
             transform.position += new Vector3(towards.x, towards.y);
             JustMoved();
         }
-        
-        Vector2Int ADfjk(Vector2Int fadsfasdf)
-        {
-            return new Vector2Int((int)transform.position.x + fadsfasdf.x, (int)transform.position.y + fadsfasdf.y);
-        }
+
+        Vector2Int Destiny(Vector2Int fadsfasdf)
+            => new((int)transform.position.x + fadsfasdf.x, (int)transform.position.y + fadsfasdf.y);
     }
 }
