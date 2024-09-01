@@ -32,5 +32,10 @@ namespace Pkmn.Overworld.Runtime
             GetComponentInChildren<SpriteRenderer>().sprite = sprites.Of(lookingTowards);
             GetComponentInChildren<SpriteRenderer>().flipX = sprites.MustFlip(lookingTowards);
         }
+
+        void OnValidate()
+        {
+            LookTowards(Vector2Int.down);
+        }
     }
 }
