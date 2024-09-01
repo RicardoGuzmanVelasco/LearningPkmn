@@ -1,6 +1,7 @@
 ﻿using System;
+using DG.Tweening;
 using UnityEngine;
-
+    
 namespace Pkmn.Overworld.Runtime
 {
     public class Move : MonoBehaviour
@@ -10,7 +11,15 @@ namespace Pkmn.Overworld.Runtime
         
         public event Action JustMoved = () => {};
         public event Action CouldNotAdvance = () => {};
-        
+
+        Tween MoveSprite(Vector2Int towards)
+        {
+            return GetComponentInChildren<SpriteRenderer>().transform
+                .DOMove(new(-towards.x, -towards.y), (float)MovementTick.TotalSeconds)
+                .SetRelative(true)
+                .From(); 
+        }
+
         public void MoveTowardsIfIdle(Vector2Int direction)
         {
             moveCooldown -= TimeSpan.FromSeconds(Time.deltaTime);
@@ -39,7 +48,7 @@ namespace Pkmn.Overworld.Runtime
         void MoveTo(Vector2Int towards)
         {
             transform.position += new Vector3(towards.x, towards.y);
-            JustMoved();
+            MoveSprite(towards).OnComplete(JustMoved.Invoke);
         }
 
         Vector2Int Destiny(Vector2Int fadsfasdf)
