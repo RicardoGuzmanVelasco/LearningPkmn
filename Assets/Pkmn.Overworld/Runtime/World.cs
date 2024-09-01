@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Pkmn.Overworld.Runtime
@@ -15,9 +16,15 @@ namespace Pkmn.Overworld.Runtime
             => FindObjectsOfType<Tile>()
                 .Single(x => x.GetComponent<Being>().Coords == coords);
 
-        public bool IsNavigationable(Vector2Int destiny)
+        public bool IsNavigationable(Vector2Int where)
         {
-            return true;
+            return !BeingsAt(where).Any(x => x.GetComponent<Being>().hasMass);
+        }
+
+        IEnumerable<Being> BeingsAt(Vector2Int coord)
+        {
+            return FindObjectsOfType<Being>()
+                .Where(x => x.Coords == coord);
         }
     }
 }

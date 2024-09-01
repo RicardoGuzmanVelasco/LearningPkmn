@@ -28,13 +28,12 @@ namespace Pkmn.Overworld.Runtime
         void TurnAndMoveTowards(Vector2Int towards)
         {
             GetComponent<Turn>().LookTowards(towards);
+            
+            transform.position += new Vector3(towards.x, towards.y);
+            JustMoved();
 
-            if(FindObjectOfType<World>().IsNavigationable(ADfjk(towards)))
-            {
-                transform.position += new Vector3(ADfjk(towards).x, ADfjk(towards).y, 0);
-                
-                JustMoved();
-            }
+            if(!FindObjectOfType<World>().IsNavigationable(ADfjk(towards)))
+                Debug.Log("hhhnng");
         }
         
         Vector2Int ADfjk(Vector2Int fadsfasdf)

@@ -7,7 +7,7 @@ namespace Pkmn.Overworld.Runtime
     {
         public Vector2Int Coords => EnsureCoords();
 
-        [SerializeField] bool hasMass;
+        [SerializeField] internal bool hasMass;
 
         Vector2Int EnsureCoords()
         {
