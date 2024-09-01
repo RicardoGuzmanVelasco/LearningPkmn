@@ -13,7 +13,7 @@ namespace Pkmn.Overworld.Runtime
 
         static void HandleAmbush()
         {
-            if (FindObjectOfType<World>().Ambush())
+            if (FindObjectOfType<Encounter>().WillHappen())
                 Debug.Log("Un ratolí salvatge va aparèixer!");
         }
     }
