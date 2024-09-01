@@ -20,6 +20,21 @@ namespace Pkmn.Overworld.Runtime
 
         public void Step()
         {
+            if (steps == 0)
+                return;
+            
+            FadeRepel();
+            WoreOffRepel();
+        }
+
+        void WoreOffRepel()
+        {
+            if (steps == 0)
+                Debug.Log("Repel effect wore off!");
+        }
+
+        void FadeRepel()
+        {
             if (steps > 0)
                 steps--;
             Debug.Log($"Repel steps left: {steps}");
