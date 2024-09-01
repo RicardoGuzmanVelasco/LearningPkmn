@@ -28,6 +28,16 @@ namespace Pkmn.Overworld.Runtime
         {
             return FindObjectsOfType<Being>()
                 .Where(x => x.Coords == coord);
+        } 
+
+        void OnValidate()
+        {
+            var allTiles = FindObjectsOfType<Tile>()
+                .OrderBy(t => t.GetComponent<Being>().Coords.x)
+                .ThenBy(t => t.GetComponent<Being>().Coords.y)
+                .ToArray();
+            for (var i = 0; i < allTiles.Length; i++)
+                allTiles[i].transform.SetSiblingIndex(i);
         }
 
         void OnValidate()
