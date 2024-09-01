@@ -15,8 +15,7 @@ namespace Pkmn.Overworld.Runtime
         Tween MoveSprite(Vector2Int towards)
         {
             return GetComponentInChildren<SpriteRenderer>().transform
-                .DOMove(new(-towards.x, -towards.y), (float)MovementTick.TotalSeconds)
-                .SetRelative(true)
+                .DOLocalMove(new(-towards.x, -towards.y), (float)MovementTick.TotalSeconds)
                 .From(); 
         }
 
