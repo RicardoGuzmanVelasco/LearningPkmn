@@ -8,6 +8,8 @@ namespace Pkmn.Overworld.Runtime
         static readonly TimeSpan MovementTick = TimeSpan.FromSeconds(0.25);
         TimeSpan moveCooldown = TimeSpan.Zero;
         
+        public event Action JustMoved = () => {};
+        
         public void MoveTowardsIfIdle(Vector2Int direction)
         {
             moveCooldown -= TimeSpan.FromSeconds(Time.deltaTime);
@@ -27,6 +29,7 @@ namespace Pkmn.Overworld.Runtime
         {
             GetComponent<Turn>().LookTowards(towards);
             transform.position += new Vector3(towards.x, towards.y);
+            JustMoved();
         }
     }
 }
