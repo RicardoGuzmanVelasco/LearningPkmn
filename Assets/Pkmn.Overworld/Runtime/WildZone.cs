@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace Pkmn.Overworld.Runtime
 {
@@ -6,7 +7,7 @@ namespace Pkmn.Overworld.Runtime
     {
         void Awake()
         {
-            FindObjectOfType<Turn>().JustTurned += () => FDsfsdflj();
+            FindObjectOfType<Input>().GetComponent<Turn>().JustTurned += FDsfsdflj;
         }
 
         static void FDsfsdflj()

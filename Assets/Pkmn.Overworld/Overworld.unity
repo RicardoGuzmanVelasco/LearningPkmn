@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 290652500}
   - component: {fileID: 290652501}
   - component: {fileID: 290652502}
+  - component: {fileID: 290652503}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -354,6 +355,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9d57a2966d74e0c8e078c5dade19d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &290652503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290652499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8cb2f4ef1c4f7bb776ab55b7b86b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &303124463
@@ -1104,7 +1117,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1389634985, guid: 7f64a9aed35606242bdd342342cddb05, type: 3}
+  m_Sprite: {fileID: -822883806, guid: 7f64a9aed35606242bdd342342cddb05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.7490196}
   m_FlipX: 0
   m_FlipY: 0
