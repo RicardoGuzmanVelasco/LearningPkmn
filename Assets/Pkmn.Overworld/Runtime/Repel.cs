@@ -5,7 +5,9 @@ namespace Pkmn.Overworld.Runtime
 {
     internal class Repel : MonoBehaviour
     {
-        int steps = 0;
+        int remainingSteps;
+
+        public bool IsActive => remainingSteps > 0;
 
         void Awake()
         {
@@ -15,12 +17,12 @@ namespace Pkmn.Overworld.Runtime
         public void Spray()
         {
             Debug.Log("Repel sprayed!");
-            steps = 5;
+            remainingSteps = 5;
         }
 
         public void Step()
         {
-            if (steps == 0)
+            if (remainingSteps == 0)
                 return;
             
             FadeRepel();
@@ -29,15 +31,15 @@ namespace Pkmn.Overworld.Runtime
 
         void WoreOffRepel()
         {
-            if (steps == 0)
+            if (remainingSteps == 0)
                 Debug.Log("Repel effect wore off!");
         }
 
         void FadeRepel()
         {
-            if (steps > 0)
-                steps--;
-            Debug.Log($"Repel steps left: {steps}");
+            if (remainingSteps > 0)
+                remainingSteps--;
+            Debug.Log($"Repel steps left: {remainingSteps}");
         }
     }
 }
