@@ -27,7 +27,7 @@ namespace Pkmn.Overworld.Runtime
 
         bool RedIsNotHere()
         {
-            return FindObjectOfType<Red>().WhereIs != GetComponent<Being>().Coords;
+            return FindObjectOfType<Red>().WhereIs != GetComponent<IsInTheWorld>().Coords;
         }
     }
 }

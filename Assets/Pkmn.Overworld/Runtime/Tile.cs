@@ -12,7 +12,7 @@ namespace Pkmn.Overworld.Runtime
 
         void OnValidate()
         {
-            name = GetComponent<Being>().Coords.ToString();
+            name = GetComponent<IsInTheWorld>().Coords.ToString();
         }
     }
 }

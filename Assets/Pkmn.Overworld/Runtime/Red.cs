@@ -5,7 +5,7 @@ namespace Pkmn.Overworld.Runtime
 {
     internal class Red : MonoBehaviour
     {
-        public Vector2Int WhereIs => GetComponent<Being>().Coords;
+        public Vector2Int WhereIs => GetComponent<IsInTheWorld>().Coords;
         
         public event Action JustTurned
         {

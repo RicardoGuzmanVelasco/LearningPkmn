@@ -16,25 +16,25 @@ namespace Pkmn.Overworld.Runtime
 
         Tile At(Vector2Int coords)
             => FindObjectsOfType<Tile>()
-                .Single(x => x.GetComponent<Being>().Coords == coords);
+                .Single(x => x.GetComponent<IsInTheWorld>().Coords == coords);
  
         public bool IsNavigationable(Vector2Int where)
         {
             var beingsAt = BeingsAt(where);
-            return !beingsAt.Any(x => x.GetComponent<Being>().hasMass);
+            return !beingsAt.Any(x => x.GetComponent<IsInTheWorld>().hasMass);
         }
 
-        IEnumerable<Being> BeingsAt(Vector2Int coord)
+        IEnumerable<IsInTheWorld> BeingsAt(Vector2Int coord)
         {
-            return FindObjectsOfType<Being>()
+            return FindObjectsOfType<IsInTheWorld>()
                 .Where(x => x.Coords == coord);
         }
 
         void OnValidate()
         {
             var allTiles = FindObjectsOfType<Tile>()
-                .OrderBy(t => t.GetComponent<Being>().Coords.x)
-                .ThenBy(t => t.GetComponent<Being>().Coords.y)
+                .OrderBy(t => t.GetComponent<IsInTheWorld>().Coords.x)
+                .ThenBy(t => t.GetComponent<IsInTheWorld>().Coords.y)
                 .ToArray();
             for (var i = 0; i < allTiles.Length; i++)
                 allTiles[i].transform.SetSiblingIndex(i);
