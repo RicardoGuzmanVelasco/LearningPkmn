@@ -7,7 +7,7 @@ namespace Pkmn.Overworld.Runtime
         public bool WillHappen()
         {
             return !FindObjectOfType<Repel>().IsActive &&
-                   FindObjectOfType<World>().Ambush();
+                   FindObjectOfType<World>().IsAmbushAboutToHappen();
         }
     }
 }
