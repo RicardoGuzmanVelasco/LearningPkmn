@@ -7,6 +7,8 @@ namespace Pkmn.Overworld.Runtime
     {
         public Vector2Int Coords => EnsureCoords();
 
+        [SerializeField] bool hasMass;
+
         Vector2Int EnsureCoords()
         {
             var coords = transform.position;

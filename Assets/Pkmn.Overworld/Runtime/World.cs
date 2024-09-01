@@ -14,6 +14,10 @@ namespace Pkmn.Overworld.Runtime
         Tile At(Vector2Int coords)
             => FindObjectsOfType<Tile>()
                 .Single(x => x.GetComponent<Being>().Coords == coords);
-            
+
+        public bool IsNavigationable(Vector2Int destiny)
+        {
+            return true;
+        }
     }
 }
