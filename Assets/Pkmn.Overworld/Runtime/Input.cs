@@ -6,7 +6,15 @@ namespace Pkmn.Overworld.Runtime
     {
         void Update()
         {
+            HandleMovement();
             HandleTurn();
+        }
+
+        void HandleMovement()
+        {
+            var direction = WhereToMove();
+            if(direction is not null)
+                GetComponent<Move>().MoveTowardsIfIdle(direction.Value);
         }
 
         void HandleTurn()
@@ -30,7 +38,7 @@ namespace Pkmn.Overworld.Runtime
             return null;
         }
         
-        internal static Vector2Int? WhereToMove()
+        static Vector2Int? WhereToMove()
         {
             if (UnityEngine.Input.GetKey(KeyCode.UpArrow))
                 return Vector2Int.up;

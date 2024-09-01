@@ -7,21 +7,14 @@ namespace Pkmn.Overworld.Runtime
     {
         static readonly TimeSpan MovementTick = TimeSpan.FromSeconds(0.25);
         TimeSpan moveCooldown = TimeSpan.Zero;
-
-        void Update()
+        
+        public void MoveTowardsIfIdle(Vector2Int direction)
         {
             moveCooldown -= TimeSpan.FromSeconds(Time.deltaTime);
             if (moveCooldown > TimeSpan.Zero)
                 return;
-
-            var directionToMove = WhereToMove();
-            if (directionToMove is not null)
-                BlockMovementAndMove(directionToMove.Value);
-        }
-
-        static Vector2Int? WhereToMove()
-        {
-            return Input.WhereToMove();
+            
+            BlockMovementAndMove(direction);
         }
 
         void BlockMovementAndMove(Vector2Int towards)
