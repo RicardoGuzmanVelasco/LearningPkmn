@@ -7,10 +7,11 @@ namespace Pkmn.Overworld.Runtime
     {
         void Awake()
         {
-            FindObjectOfType<Input>().GetComponent<Turn>().JustTurned += FDsfsdflj;
+            FindObjectOfType<Input>().GetComponent<Turn>().JustTurned += HandleAmbush;
+            FindObjectOfType<Input>().GetComponent<Move>().JustMoved += HandleAmbush;
         }
 
-        static void FDsfsdflj()
+        static void HandleAmbush()
         {
             if (FindObjectOfType<World>().Ambush())
                 Debug.Log("Un ratolí salvatge va aparèixer!");
