@@ -5,10 +5,11 @@ namespace Pkmn.Overworld.Runtime
 {
     public class Move : MonoBehaviour
     {
-        static readonly TimeSpan MovementTick = TimeSpan.FromSeconds(0.25);
+        static readonly TimeSpan MovementTick = TimeSpan.FromSeconds(.4f);
         TimeSpan moveCooldown = TimeSpan.Zero;
         
         public event Action JustMoved = () => {};
+        public event Action CouldNotAdvance = () => {};
         
         public void MoveTowardsIfIdle(Vector2Int direction)
         {
@@ -32,7 +33,7 @@ namespace Pkmn.Overworld.Runtime
             if(FindObjectOfType<World>().IsNavigationable(Destiny(towards)))
                 MoveTo(towards);
             else
-                Debug.Log("hggngg");
+                CouldNotAdvance();   
         }
 
         void MoveTo(Vector2Int towards)
