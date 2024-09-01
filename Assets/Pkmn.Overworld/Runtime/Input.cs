@@ -9,6 +9,13 @@ namespace Pkmn.Overworld.Runtime
         {
             HandleMovement();
             HandleTurn();
+            HandleRepel();
+        }
+
+        void HandleRepel()
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.R))
+                FindObjectOfType<Repel>().Spray();
         }
 
         void HandleMovement()
