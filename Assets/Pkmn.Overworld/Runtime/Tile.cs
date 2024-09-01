@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Pkmn.Overworld.Runtime
 {
@@ -8,5 +9,10 @@ namespace Pkmn.Overworld.Runtime
         public bool IsWildZone => isHighGrass;
 
         public float EncounterChance() => isHighGrass ? 0.1f : 0;
+
+        void OnValidate()
+        {
+            name = GetComponent<Being>().Coords.ToString();
+        }
     }
 }
