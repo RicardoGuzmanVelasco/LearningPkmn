@@ -18,7 +18,8 @@ namespace Pkmn.Overworld.Runtime
 
         public bool IsNavigationable(Vector2Int where)
         {
-            return !BeingsAt(where).Any(x => x.GetComponent<Being>().hasMass);
+            var beingsAt = BeingsAt(where);
+            return !beingsAt.Any(x => x.GetComponent<Being>().hasMass);
         }
 
         IEnumerable<Being> BeingsAt(Vector2Int coord)
