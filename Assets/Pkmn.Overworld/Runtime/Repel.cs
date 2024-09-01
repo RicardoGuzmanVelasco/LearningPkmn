@@ -11,7 +11,7 @@ namespace Pkmn.Overworld.Runtime
 
         void Awake()
         {
-            FindObjectOfType<Input>().GetComponent<Move>().JustMoved += Step;
+            FindObjectOfType<Red>().GetComponent<Move>().JustMoved += Step;
         }
 
         public void Spray()

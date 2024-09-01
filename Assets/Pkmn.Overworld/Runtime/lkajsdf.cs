@@ -10,7 +10,7 @@ namespace Pkmn.Overworld.Runtime
         
         void Awake()
         {
-            FindObjectOfType<Input>().GetComponent<Move>().JustMoved += ChangeThemeIfRedIsHere;
+            FindObjectOfType<Red>().JustMoved += ChangeThemeIfRedIsHere;
         }
 
         void ChangeThemeIfRedIsHere()
@@ -27,7 +27,7 @@ namespace Pkmn.Overworld.Runtime
 
         bool RedIsNotHere()
         {
-            return FindObjectOfType<Input>().GetComponent<Being>().Coords != GetComponent<Being>().Coords;
+            return FindObjectOfType<Red>().WhereIs != GetComponent<Being>().Coords;
         }
     }
 }

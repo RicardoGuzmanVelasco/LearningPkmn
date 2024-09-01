@@ -7,8 +7,8 @@ namespace Pkmn.Overworld.Runtime
     {
         void Awake()
         {
-            FindObjectOfType<Input>().GetComponent<Turn>().JustTurned += HandleAmbush;
-            FindObjectOfType<Input>().GetComponent<Move>().JustMoved += HandleAmbush;
+            FindObjectOfType<Red>().JustTurned += HandleAmbush;
+            FindObjectOfType<Red>().JustMoved += HandleAmbush;
         }
 
         static void HandleAmbush()

@@ -12,7 +12,7 @@ namespace Pkmn.Overworld.Runtime
             => Random.Range(0f, 1f) < At(RedCoords()).EncounterChance();
 
         static Vector2Int RedCoords()
-            => FindObjectOfType<Runtime.Input>().GetComponent<Being>().Coords;
+            => FindObjectOfType<Red>().WhereIs;
 
         Tile At(Vector2Int coords)
             => FindObjectsOfType<Tile>()
