@@ -7,6 +7,8 @@ namespace Pkmn.Overworld.Runtime
     {
         [SerializeField] bool isHighGrass;
         public bool IsWildZone => isHighGrass;
+        
+        public Vector2Int Coords => GetComponent<IsInTheWorld>().Coords; 
 
         public float EncounterChance() => isHighGrass ? 0.1f : 0;
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Pkmn.Overworld.Runtime
 {
-    public class IsInTheMap : MonoBehaviour
+    public class IsInTheWorld : MonoBehaviour
     {
         public Vector2Int Coords => EnsureCoords();
 

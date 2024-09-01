@@ -9,22 +9,21 @@ namespace Pkmn.Overworld.Runtime
     public class World : MonoBehaviour
     {
         public bool IsAmbushAboutToHappen()
-            => Random.Range(0f, 1f) < At(RedCoords()).EncounterChance();
+            => Random.Range(0f, 1f) < TilesAt(RedCoords()).EncounterChance();
 
         static Vector2Int RedCoords()
             => FindObjectOfType<Red>().WhereIs;
 
-        Tile At(Vector2Int coords)
+        Tile TilesAt(Vector2Int coords)
             => FindObjectsOfType<Tile>()
                 .Single(x => x.GetComponent<IsInTheWorld>().Coords == coords);
  
         public bool IsNavigationable(Vector2Int where)
         {
-            var beingsAt = BeingsAt(where);
-            return !beingsAt.Any(x => x.GetComponent<IsInTheWorld>().hasMass);
+            return !EverythingAt(where).Any(x => x.GetComponent<IsInTheWorld>().hasMass);
         }
 
-        IEnumerable<IsInTheWorld> BeingsAt(Vector2Int coord)
+        IEnumerable<IsInTheWorld> EverythingAt(Vector2Int coord)
         {
             return FindObjectsOfType<IsInTheWorld>()
                 .Where(x => x.Coords == coord);
@@ -33,8 +32,8 @@ namespace Pkmn.Overworld.Runtime
         void OnValidate()
         {
             var allTiles = FindObjectsOfType<Tile>()
-                .OrderBy(t => t.GetComponent<IsInTheWorld>().Coords.x)
-                .ThenBy(t => t.GetComponent<IsInTheWorld>().Coords.y)
+                .OrderBy(t => t.Coords.x)
+                .ThenBy(t => t.Coords.y)
                 .ToArray();
             for (var i = 0; i < allTiles.Length; i++)
                 allTiles[i].transform.SetSiblingIndex(i);
