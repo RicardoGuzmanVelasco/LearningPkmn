@@ -18,9 +18,9 @@ namespace Pkmn.Overworld.Runtime
                 return;
 
             if (currentMapArea == mapArea)
-                return;
-
-            Debug.Log("Welcome to " + mapArea);
+                return; 
+            
+            FindObjectOfType<TownshipToast>().WelcomeTo(mapArea);
             currentMapArea = mapArea;
         }
         

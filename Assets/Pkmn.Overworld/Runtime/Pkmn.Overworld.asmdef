@@ -2,7 +2,8 @@
     "name": "Pkmn.Overworld",
     "rootNamespace": "",
     "references": [
-        "DOTween.Modules"
+        "DOTween.Modules",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
