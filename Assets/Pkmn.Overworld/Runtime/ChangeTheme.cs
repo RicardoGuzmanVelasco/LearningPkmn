@@ -3,10 +3,9 @@ using UnityEngine;
 
 namespace Pkmn.Overworld.Runtime
 {
-    internal class lkajsdf : MonoBehaviour
+    internal class ChangeTheme : MonoBehaviour
     {
-        [SerializeField] string theme;
-        static string currentTheme;
+        [SerializeField] AudioClip theme;
         
         void Awake()
         {
@@ -18,11 +17,10 @@ namespace Pkmn.Overworld.Runtime
             if(RedIsNotHere())
                 return;
 
-            if (theme == currentTheme)
+            if (FindObjectOfType<Music>().IsPlaying(theme))
                 return;
                 
-            Debug.Log("new song: " + theme);
-            currentTheme = theme;
+            FindObjectOfType<Music>().Play(theme);
         }
 
         bool RedIsNotHere()
