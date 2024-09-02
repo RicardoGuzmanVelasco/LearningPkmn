@@ -876,6 +876,7 @@ GameObject:
   - component: {fileID: 102527682}
   - component: {fileID: 102527681}
   - component: {fileID: 102527683}
+  - component: {fileID: 102527684}
   m_Layer: 0
   m_Name: (-5, 2)
   m_TagString: Untagged
@@ -938,6 +939,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theme: {fileID: 8300000, guid: bf91e3acd3966604da118d9548a3a209, type: 3}
+--- !u!114 &102527684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102527679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ecac741a0d4fafa8b5ba5dec93a815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapArea: La puta Ruta 1
 --- !u!1 &110933978
 GameObject:
   m_ObjectHideFlags: 0
@@ -10956,6 +10970,7 @@ GameObject:
   - component: {fileID: 2114725586}
   - component: {fileID: 2114725585}
   - component: {fileID: 2114725587}
+  - component: {fileID: 2114725588}
   m_Layer: 0
   m_Name: (-4, 2)
   m_TagString: Untagged
@@ -11018,6 +11033,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theme: {fileID: 8300000, guid: b65f3b4f4b9195a498d19d5ba5dc539a, type: 3}
+--- !u!114 &2114725588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114725583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ecac741a0d4fafa8b5ba5dec93a815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapArea: "Pueblo Paleta, t\xFA"
 --- !u!1 &2132399798
 GameObject:
   m_ObjectHideFlags: 0
