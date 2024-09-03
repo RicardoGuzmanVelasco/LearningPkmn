@@ -32,7 +32,8 @@ namespace Pkmn.Overworld.Runtime
         void WoreOffRepel()
         {
             if (remainingSteps == 0)
-                Debug.Log("Repel effect wore off!");
+                FindObjectOfType<Popup>().Say("Repel effect wore off!");                
+
         }
 
         void FadeRepel()
