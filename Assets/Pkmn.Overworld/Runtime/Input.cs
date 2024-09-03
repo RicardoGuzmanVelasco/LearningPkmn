@@ -20,8 +20,8 @@ namespace Pkmn.Overworld.Runtime
                 return;
 
 
-            var coordInFrontOfRed = FindObjectOfType<Red>().CoordInFront;
-            Debug.Log(FindObjectOfType<World>().TileAt(coordInFrontOfRed));
+            var inFrontOfRed = FindObjectOfType<Red>().CoordInFront;
+            Debug.Log(FindObjectOfType<World>().WhoIs(inFrontOfRed));
         }
 
         void HandleRepel()
