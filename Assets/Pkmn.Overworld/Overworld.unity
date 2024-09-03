@@ -1783,6 +1783,7 @@ GameObject:
   - component: {fileID: 290652501}
   - component: {fileID: 290652502}
   - component: {fileID: 290652503}
+  - component: {fileID: 290652504}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -1847,6 +1848,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8cb2f4ef1c4f7bb776ab55b7b86b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &290652504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290652499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43739f81238b4ef1b0372a52fa730b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversation: "La tecnolog\xECa es l'hostia, eh"
 --- !u!1 &291653592
 GameObject:
   m_ObjectHideFlags: 0
@@ -2913,6 +2927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 544127132}
   - component: {fileID: 544127133}
+  - component: {fileID: 544127134}
   m_Layer: 5
   m_Name: Popup
   m_TagString: Untagged
@@ -2954,6 +2969,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae06a9ecbd1496580cbd5ec6dd8bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &544127134
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544127131}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &546993738
 GameObject:
   m_ObjectHideFlags: 0

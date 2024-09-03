@@ -19,9 +19,8 @@ namespace Pkmn.Overworld.Runtime
             if (!UnityEngine.Input.GetKeyDown(KeyCode.Space))
                 return;
 
-
             var inFrontOfRed = FindObjectOfType<Red>().CoordInFront;
-            Debug.Log(FindObjectOfType<World>().WhoIs(inFrontOfRed));
+            FindObjectOfType<World>().WhoIs(inFrontOfRed)?.Speak();
         }
 
         void HandleRepel()
