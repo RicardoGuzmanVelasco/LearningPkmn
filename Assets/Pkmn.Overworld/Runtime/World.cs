@@ -9,12 +9,12 @@ namespace Pkmn.Overworld.Runtime
     public class World : MonoBehaviour
     {
         public bool IsAmbushAboutToHappen()
-            => Random.Range(0f, 1f) < TilesAt(RedCoords()).EncounterChance();
+            => Random.Range(0f, 1f) < TileAt(RedCoords()).EncounterChance();
 
         static Vector2Int RedCoords()
             => FindObjectOfType<Red>().WhereIs;
 
-        Tile TilesAt(Vector2Int coords)
+        Tile TileAt(Vector2Int coords)
             => FindObjectsOfType<Tile>()
                 .Single(x => x.GetComponent<IsInTheWorld>().Coords == coords);
  
@@ -32,7 +32,7 @@ namespace Pkmn.Overworld.Runtime
                 coords + Vector2Int.left,
                 coords + Vector2Int.right
             }
-            .Select(TilesAt);
+            .Select(TileAt);
         }
 
         IEnumerable<IsInTheWorld> EverythingAt(Vector2Int coord)
