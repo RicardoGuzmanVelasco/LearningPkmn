@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
     
@@ -44,10 +45,12 @@ namespace Pkmn.Overworld.Runtime
                 CouldNotAdvance();   
         }
 
-        void MoveTo(Vector2Int towards)
+        async void MoveTo(Vector2Int towards)
         {
             transform.position += new Vector3(towards.x, towards.y);
-            MoveSprite(towards).OnComplete(JustMoved.Invoke);
+            
+            await Task.Delay(MovementTick);
+            JustMoved.Invoke();
         }
 
         Vector2Int Destiny(Vector2Int fadsfasdf)
