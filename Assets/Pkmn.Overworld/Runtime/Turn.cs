@@ -6,7 +6,7 @@ namespace Pkmn.Overworld.Runtime
 {
     public class Turn : MonoBehaviour
     {
-        Vector2Int lookingTowards;
+        public Vector2Int LookingTowards { get; private set; }
 
         public event Action JustTurned = () => { };
         
@@ -20,17 +20,17 @@ namespace Pkmn.Overworld.Runtime
 
         public void LookTowards(Vector2Int newDirection)
         {
-            if (newDirection != lookingTowards)
+            if (newDirection != LookingTowards)
                 JustTurned();
             
-            lookingTowards = newDirection;
+            LookingTowards = newDirection;
             ChangeSprite();
         }
 
         void ChangeSprite()
         {
-            GetComponentInChildren<SpriteRenderer>().sprite = sprites.Of(lookingTowards);
-            GetComponentInChildren<SpriteRenderer>().flipX = sprites.MustFlip(lookingTowards);
+            GetComponentInChildren<SpriteRenderer>().sprite = sprites.Of(LookingTowards);
+            GetComponentInChildren<SpriteRenderer>().flipX = sprites.MustFlip(LookingTowards);
         }
 
         void OnValidate()

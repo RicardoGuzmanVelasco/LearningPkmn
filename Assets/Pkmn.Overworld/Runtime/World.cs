@@ -14,7 +14,7 @@ namespace Pkmn.Overworld.Runtime
         static Vector2Int RedCoords()
             => FindObjectOfType<Red>().WhereIs;
 
-        Tile TileAt(Vector2Int coords)
+        public Tile TileAt(Vector2Int coords)
             => FindObjectsOfType<Tile>()
                 .Single(x => x.GetComponent<IsInTheWorld>().Coords == coords);
  

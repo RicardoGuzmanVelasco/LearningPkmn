@@ -15,5 +15,10 @@ namespace Pkmn.Overworld.Runtime
         {
             name = GetComponent<IsInTheWorld>().Coords.ToString();
         }
+
+        public override string ToString()
+        {
+            return $"{Coords}";
+        }
     }
 }

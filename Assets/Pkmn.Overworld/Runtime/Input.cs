@@ -20,11 +20,8 @@ namespace Pkmn.Overworld.Runtime
                 return;
 
 
-            var tilesAroundRed = FindObjectOfType<World>().TilesAround(FindObjectOfType<Red>().WhereIs);
-            foreach (var tile in tilesAroundRed)
-            {
-                Debug.Log(tile.name);
-            }
+            var coordInFrontOfRed = FindObjectOfType<Red>().CoordInFront;
+            Debug.Log(FindObjectOfType<World>().TileAt(coordInFrontOfRed));
         }
 
         void HandleRepel()
