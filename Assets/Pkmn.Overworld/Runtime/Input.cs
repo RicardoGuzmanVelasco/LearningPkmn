@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Pkmn.Overworld.Runtime
@@ -10,6 +11,20 @@ namespace Pkmn.Overworld.Runtime
             HandleMovement();
             HandleTurn();
             HandleRepel();
+            HandleDialogue();
+        }
+
+        void HandleDialogue()
+        {
+            if (!UnityEngine.Input.GetKeyDown(KeyCode.Space))
+                return;
+
+
+            var tilesAroundRed = FindObjectOfType<World>().TilesAround(FindObjectOfType<Red>().WhereIs);
+            foreach (var tile in tilesAroundRed)
+            {
+                Debug.Log(tile.name);
+            }
         }
 
         void HandleRepel()
