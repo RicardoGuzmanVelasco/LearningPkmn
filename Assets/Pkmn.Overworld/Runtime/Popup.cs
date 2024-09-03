@@ -11,14 +11,21 @@ namespace Pkmn.Overworld.Runtime
         {
             GetComponent<CanvasGroup>().alpha = 0;
         }
+        
+        public bool IsActive => GetComponent<CanvasGroup>().alpha > 0;
 
         public void Say(string what)
         {
-            GetComponent<CanvasGroup>()
-                .DOFade(1, 1)
-                .SetEase(Ease.OutQuint)
-                .SetLoops(2, LoopType.Yoyo);
             GetComponentInChildren<TMP_Text>().text = what;
+            GetComponent<CanvasGroup>().alpha = 1;
+
+            FindObjectOfType<Input>().enabled = false;
+        }
+
+        public void ShutUp()
+        {
+            GetComponent<CanvasGroup>().alpha = 0;
+            FindObjectOfType<Input>().enabled = true;
         }
     }
 }
