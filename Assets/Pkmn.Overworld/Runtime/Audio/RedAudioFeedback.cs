@@ -6,9 +6,15 @@ namespace Pkmn.Overworld.Runtime
     public class RedAudioFeedback : MonoBehaviour
     {
         [SerializeField] AudioClip couldNotAdvance;
+        
         void Awake()
         {
-            GetComponent<Move>().CouldNotAdvance += () => GetComponent<AudioSource>().PlayOneShot(couldNotAdvance);
+            GetComponent<Move>().CouldNotAdvance += Play(couldNotAdvance);
+        }
+
+        Action Play(AudioClip sound)
+        {
+            return () => GetComponent<AudioSource>().PlayOneShot(sound);
         }
     }
 }
