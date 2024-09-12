@@ -21,7 +21,19 @@ namespace Pkmn.Overworld.Runtime
                 return;
 
             var inFrontOfRed = FindObjectOfType<Red>().CoordInFront;
-            FindObjectOfType<World>().WhoIs(inFrontOfRed)?.Speak();
+            SpeakIfAnyone(inFrontOfRed);
+        }
+
+        static void SpeakIfAnyone(Vector2Int inFrontOfRed)
+        {
+            var who = FindObjectOfType<World>().WhoIs(inFrontOfRed);
+            if (who is null)
+                return;
+
+            var coordsOfNpc = who.GetComponent<IsInTheWorld>().Coords;
+            var coordsOfRed = FindObjectOfType<Red>().WhereIs;
+
+            who.Speak(coordsOfRed - coordsOfNpc);
         }
 
         void HandleRepel()
