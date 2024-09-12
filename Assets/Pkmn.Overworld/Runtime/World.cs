@@ -22,18 +22,6 @@ namespace Pkmn.Overworld.Runtime
         {
             return !EverythingAt(where).Any(x => x.GetComponent<IsInTheWorld>().hasMass);
         }
-        
-        public IEnumerable<Tile> TilesAround(Vector2Int coords)
-        {
-            return new[]
-            {
-                coords + Vector2Int.up,
-                coords + Vector2Int.down,
-                coords + Vector2Int.left,
-                coords + Vector2Int.right
-            }
-            .Select(TileAt);
-        }
 
         public IEnumerable<IsInTheWorld> EverythingAt(Vector2Int coord)
         {
