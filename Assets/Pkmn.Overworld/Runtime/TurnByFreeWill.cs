@@ -7,6 +7,11 @@ namespace Pkmn.Overworld.Runtime
 {
     public class TurnByFreeWill : MonoBehaviour
     {
+        void Awake()
+        {
+            Debug.Assert(GetComponent<Turn>());
+        }
+
         IEnumerator Start()
         {
             while (!destroyCancellationToken.IsCancellationRequested)
