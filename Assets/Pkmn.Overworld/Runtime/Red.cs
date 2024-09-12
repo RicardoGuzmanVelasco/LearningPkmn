@@ -10,8 +10,8 @@ namespace Pkmn.Overworld.Runtime
         
         public event Action JustTurned
         {
-            add => GetComponent<Turn>().JustTurned += value;
-            remove => GetComponent<Turn>().JustTurned -= value;
+            add => GetComponent<Turn>().AboutToTurn += value;
+            remove => GetComponent<Turn>().AboutToTurn -= value;
         }
         public event Action JustMoved
         {

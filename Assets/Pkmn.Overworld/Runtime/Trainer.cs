@@ -6,8 +6,17 @@ namespace Pkmn.Overworld.Runtime
 {
     public class Trainer : MonoBehaviour
     {
-        void Awake() => FindObjectOfType<Red>().JustMoved += LookForRed;
-        void OnDestroy() => FindObjectOfType<Red>().JustMoved -= LookForRed;
+        void Awake()
+        {
+            FindObjectOfType<Red>().JustMoved += LookForRed;
+            GetComponent<Turn>().JustTurned += LookForRed;
+        }
+
+        void OnDestroy()
+        {
+            FindObjectOfType<Red>().JustMoved -= LookForRed;
+            GetComponent<Turn>().JustTurned -= LookForRed;
+        }
 
         void LookForRed()
         {

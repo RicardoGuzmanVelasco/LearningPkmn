@@ -8,6 +8,7 @@ namespace Pkmn.Overworld.Runtime
         public Vector2Int LookingTowards { get; private set; }
         public Vector2Int LookingAt => GetComponent<IsInTheWorld>().Coords + LookingTowards;
 
+        public event Action AboutToTurn = () => { };
         public event Action JustTurned = () => { };
         
         [SerializeField]
@@ -20,11 +21,13 @@ namespace Pkmn.Overworld.Runtime
 
         public void LookTowards(Vector2Int newDirection)
         {
-            if (newDirection != LookingTowards)
-                JustTurned();
+            if (newDirection == LookingTowards)
+                return;
             
+            AboutToTurn();
             LookingTowards = newDirection;
             ChangeSprite();
+            JustTurned();
         }
 
         void ChangeSprite()
