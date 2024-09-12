@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Pkmn.Overworld.Runtime
@@ -10,11 +11,20 @@ namespace Pkmn.Overworld.Runtime
 
         void LookForRed()
         {
-            foreach (var something in FindObjectOfType<World>().EverythingAt(GetComponent<Turn>().LookingAt))
-            {
-                if (something.GetComponent<Red>())
-                    Debug.Log("Jo veure Red");
-            }
+            if (ImSeeingRed())
+                ChallengeRed();
+        }
+
+        bool ImSeeingRed()
+        {
+            return FindObjectOfType<World>()
+                .EverythingAt(GetComponent<Turn>().LookingAt)
+                .Any(x => x.GetComponent<Red>());
+        }
+
+        void ChallengeRed()
+        {
+            Debug.Log("jaklsjdf");
         }
     }
 }
