@@ -4,11 +4,12 @@ namespace Pkmn.Overworld.Runtime
 {
     public class Trainer : MonoBehaviour
     {
-        void Awake()
+        void Update()
         {
             foreach (var something in FindObjectOfType<World>().EverythingAt(GetComponent<Turn>().LookingAt))
             {
-                Debug.Log(something);
+                if (something.GetComponent<Red>())
+                    Debug.Log("Jo veure Red");
             }
         }
     }
