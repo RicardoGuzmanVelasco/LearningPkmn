@@ -6,6 +6,7 @@ namespace Pkmn.Overworld.Runtime
     public class Turn : MonoBehaviour
     {
         public Vector2Int LookingTowards { get; private set; }
+        public Vector2Int LookingAt => GetComponent<IsInTheWorld>().Coords + LookingTowards;
 
         public event Action JustTurned = () => { };
         

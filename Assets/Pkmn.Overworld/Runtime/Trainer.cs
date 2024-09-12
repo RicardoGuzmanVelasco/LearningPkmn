@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Pkmn.Overworld.Runtime
 {
@@ -7,11 +6,7 @@ namespace Pkmn.Overworld.Runtime
     {
         void Awake()
         {
-            var imin = GetComponent<IsInTheWorld>().Coords;
-            var imlookingat = GetComponent<Turn>().LookingTowards;
-            var infrontOf = FindObjectOfType<World>().EverythingAt(imin + imlookingat);
-            
-            foreach (var something in infrontOf)
+            foreach (var something in FindObjectOfType<World>().EverythingAt(GetComponent<Turn>().LookingAt))
             {
                 Debug.Log(something);
             }
