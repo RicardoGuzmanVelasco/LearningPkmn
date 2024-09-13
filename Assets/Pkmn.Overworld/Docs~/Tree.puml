@@ -1,0 +1,87 @@
+﻿@startuml
+skin rose
+
+rectangle Input #technology
+rectangle MismosBotonesGirarYMoverse
+rectangle Movimiento #technology
+rectangle AnimarPasos
+rectangle Detección #khaki
+rectangle Combate
+rectangle OrdenDeSucesos
+rectangle Audio #technology
+rectangle Pasos
+rectangle Música #technology
+rectangle CambioDeMúsica #implementation
+rectangle DesdeElEmpezar
+rectangle DecidirEntreVariasALaVez #implementation
+
+rectangle Interaccionables
+rectangle Hablar #technology
+rectangle Conversar
+rectangle TeMiraElNCP #technology
+rectangle PararElMundo
+rectangle ElNpcNoPasaLuegoDeTi #implementation
+rectangle "¿?" as InteraccionablesFuturo #transparent
+
+rectangle ZonaSalvaje #technology
+rectangle Repelente #technology
+rectangle PorNivel
+rectangle SonidoAlEcharse
+rectangle Huevo
+rectangle PopupAlFinDelRepelente
+rectangle NPC #technology
+rectangle RestringirDóndeMira #application
+rectangle MovimientoRestringido 
+
+rectangle Bloqueables #technology
+rectangle SonidoNnngh #technology
+rectangle Desniveles #implementation
+
+rectangle Mapa 
+rectangle CambiarDeZona
+rectangle CambioDeTérminoMunicipal #technology
+
+rectangle Acelerar #application
+rectangle VelocidadDoduo #application
+rectangle VelocidadDodrio #application
+
+Input -- MismosBotonesGirarYMoverse
+Movimiento -- AnimarPasos
+
+Detección -- Combate
+Detección .. OrdenDeSucesos
+
+Audio -- Pasos
+Audio -- Música
+Audio -- CambioDeMúsica
+CambioDeMúsica -- DesdeElEmpezar
+CambioDeMúsica -- DecidirEntreVariasALaVez
+
+Interaccionables -- Hablar
+Interaccionables .. InteraccionablesFuturo
+Hablar -- Conversar
+Hablar -- TeMiraElNCP
+Hablar -- PararElMundo
+TeMiraElNCP -- ElNpcNoPasaLuegoDeTi
+
+ZonaSalvaje -- Repelente
+Repelente -- PorNivel
+Repelente -- SonidoAlEcharse
+Repelente - Huevo
+Repelente -- PopupAlFinDelRepelente
+
+NPC -- RestringirDóndeMira
+NPC -- MovimientoRestringido
+
+Bloqueables -- Desniveles
+Bloqueables -- SonidoNnngh
+
+Mapa -- CambiarDeZona
+Mapa -- CambioDeTérminoMunicipal
+
+Acelerar -- VelocidadDoduo
+Acelerar -- VelocidadDodrio
+
+
+@enduml
+
