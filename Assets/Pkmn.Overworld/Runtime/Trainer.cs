@@ -6,6 +6,8 @@ namespace Pkmn.Overworld.Runtime
 {
     public class Trainer : MonoBehaviour
     {
+        [SerializeField] AudioClip challengeTheme;
+        
         void Awake()
         {
             FindObjectOfType<Red>().JustMoved += LookForRed;
@@ -33,7 +35,8 @@ namespace Pkmn.Overworld.Runtime
 
         void ChallengeRed()
         {
-            Debug.Log("jaklsjdf");
+            FindObjectOfType<Popup>().Say("Combatem, si us plau!");
+            FindObjectOfType<Music>().Play(challengeTheme);
         }
     }
 }
