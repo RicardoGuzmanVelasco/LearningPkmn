@@ -1,7 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Pkmn.Overworld.Runtime
 {
@@ -10,7 +8,7 @@ namespace Pkmn.Overworld.Runtime
         void Update()
         {
             HandleDialogue();
-            HandleMovement();
+            FindObjectOfType<TurnOrMoveInput>().HandleMovement();
             HandleTurn();
             HandleRepel();
         }
@@ -46,13 +44,6 @@ namespace Pkmn.Overworld.Runtime
                 FindObjectOfType<Repel>().Spray();
         }
 
-        void HandleMovement()
-        {
-            var direction = WhereToMove();
-            if (direction is not null)
-                GetComponent<Move>().MoveTowardsIfIdle(direction.Value);
-        }
-
         void HandleTurn()
         {
             var direction = WhereToLook();
@@ -69,20 +60,6 @@ namespace Pkmn.Overworld.Runtime
             if (UnityEngine.Input.GetKeyDown(KeyCode.A))
                 return Vector2Int.left;
             if (UnityEngine.Input.GetKeyDown(KeyCode.D))
-                return Vector2Int.right;
-
-            return null;
-        }
-
-        static Vector2Int? WhereToMove()
-        {
-            if (UnityEngine.Input.GetKey(KeyCode.UpArrow))
-                return Vector2Int.up;
-            if (UnityEngine.Input.GetKey(KeyCode.DownArrow))
-                return Vector2Int.down;
-            if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
-                return Vector2Int.left;
-            if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
                 return Vector2Int.right;
 
             return null;
