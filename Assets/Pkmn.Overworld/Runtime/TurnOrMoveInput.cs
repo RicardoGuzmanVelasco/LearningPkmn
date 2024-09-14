@@ -7,19 +7,22 @@ namespace Pkmn.Overworld.Runtime
 {
     public class TurnOrMoveInput : MonoBehaviour
     {
+        static readonly TimeSpan ThresholdToMove = TimeSpan.FromSeconds(0.2);
         Vector2Int whereIsTryingToMoveTo;
         TimeSpan forHowLongIsTryingToMoveToTheSameDirection;
-        
+
         internal void Handle()
         {
             var direction = WhereToMove();
             if (direction is not null)
                 GetComponent<Move>().MoveTowardsIfIdle(direction.Value);
+            else
+                GetComponent<Turn>().LookTowards(whereIsTryingToMoveTo);
         }
 
         Vector2Int? WhereToMove()
         {
-            if(forHowLongIsTryingToMoveToTheSameDirection < TimeSpan.FromSeconds(0.2))
+            if(forHowLongIsTryingToMoveToTheSameDirection < ThresholdToMove)
                 return null;
             
             if (GetKey(UpArrow))

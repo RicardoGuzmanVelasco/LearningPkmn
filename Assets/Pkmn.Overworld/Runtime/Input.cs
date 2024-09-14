@@ -9,7 +9,6 @@ namespace Pkmn.Overworld.Runtime
         {
             HandleDialogue();
             FindObjectOfType<TurnOrMoveInput>().Handle();
-            HandleTurn();
             HandleRepel();
         }
 
@@ -42,27 +41,6 @@ namespace Pkmn.Overworld.Runtime
         {
             if (UnityEngine.Input.GetKeyDown(KeyCode.R))
                 FindObjectOfType<Repel>().Spray();
-        }
-
-        void HandleTurn()
-        {
-            var direction = WhereToLook();
-            if (direction is not null)
-                GetComponent<Turn>().LookTowards(direction.Value);
-        }
-
-        Vector2Int? WhereToLook()
-        {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.W))
-                return Vector2Int.up;
-            if (UnityEngine.Input.GetKeyDown(KeyCode.S))
-                return Vector2Int.down;
-            if (UnityEngine.Input.GetKeyDown(KeyCode.A))
-                return Vector2Int.left;
-            if (UnityEngine.Input.GetKeyDown(KeyCode.D))
-                return Vector2Int.right;
-
-            return null;
         }
     }
 }
