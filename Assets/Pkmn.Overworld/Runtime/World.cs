@@ -32,8 +32,8 @@ namespace Pkmn.Overworld.Runtime
         public IReply WhoIs(Vector2Int coord)
         {
             return EverythingAt(coord)
-                .SingleOrDefault(x => x.GetComponent<Npc>() is not null)
-                ?.GetComponent<IReply>();
+                .Select(x => x.GetComponent<IReply>())
+                .SingleOrDefault(x => x is not null);
         }
 
         void OnValidate()
