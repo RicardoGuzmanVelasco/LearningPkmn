@@ -33,10 +33,10 @@ namespace Pkmn.Overworld.Runtime
             if (who is null)
                 return;
 
-            var coordsOfNpc = who.GetComponent<IsInTheWorld>().Coords;
+            var coordsOfNpc = who.Coords;
             var coordsOfRed = FindObjectOfType<Red>().WhereIs;
 
-            who.Speak(coordsOfRed - coordsOfNpc);
+            who.Reply(coordsOfRed - coordsOfNpc);
             FindObjectOfType<PopupInput>(true).enabled = true;
         }
 

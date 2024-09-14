@@ -29,11 +29,11 @@ namespace Pkmn.Overworld.Runtime
                 .Where(x => x.Coords == coord);
         }
         
-        public Npc WhoIs(Vector2Int coord)
+        public IReply WhoIs(Vector2Int coord)
         {
             return EverythingAt(coord)
                 .SingleOrDefault(x => x.GetComponent<Npc>() is not null)
-                ?.GetComponent<Npc>();
+                ?.GetComponent<IReply>();
         }
 
         void OnValidate()

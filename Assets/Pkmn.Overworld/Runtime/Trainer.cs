@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Pkmn.Overworld.Runtime
 {
-    public class Trainer : MonoBehaviour
+    public class Trainer : MonoBehaviour, IReply
     {
         [SerializeField] AudioClip challengeTheme;
         
@@ -19,6 +19,13 @@ namespace Pkmn.Overworld.Runtime
             FindObjectOfType<Red>().JustMoved -= LookForRed;
             GetComponent<Turn>().JustTurned -= LookForRed;
         }
+
+        public void Reply(Vector2Int towards)
+        {
+            GetComponent<Turn>().LookTowards(towards);
+        }
+
+        public Vector2Int Coords => GetComponent<IsInTheWorld>().Coords;
 
         void LookForRed()
         {
