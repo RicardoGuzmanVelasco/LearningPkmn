@@ -7,6 +7,8 @@ namespace Pkmn.Overworld.Runtime
 {
     internal class Popup : MonoBehaviour
     {
+        [SerializeField] AudioClip okSound;
+        
         void Awake()
         {
             GetComponent<CanvasGroup>().alpha = 0;
@@ -26,6 +28,7 @@ namespace Pkmn.Overworld.Runtime
         {
             GetComponent<CanvasGroup>().alpha = 0;
             FindObjectOfType<Input>().enabled = true;
+            GetComponent<AudioSource>().PlayOneShot(okSound);
         }
     }
 }
