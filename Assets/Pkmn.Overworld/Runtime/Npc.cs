@@ -9,10 +9,6 @@ namespace Pkmn.Overworld.Runtime
         public void Speak(Vector2Int towards)
         {
             GetComponent<Turn>().LookTowards(towards);
-            Speak();
-        }
-        public void Speak()
-        {
             FindObjectOfType<Popup>().Say(conversation);
         }
     }
