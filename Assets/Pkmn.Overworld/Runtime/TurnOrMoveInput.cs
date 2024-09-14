@@ -8,6 +8,8 @@ namespace Pkmn.Overworld.Runtime
     public class TurnOrMoveInput : MonoBehaviour
     {
         Vector2Int whereIsTryingToMoveTo;
+        TimeSpan forHowLongIsTryingToMoveToTheSameDirection;
+        
         internal void Handle()
         {
             var direction = WhereToMove();
@@ -31,7 +33,7 @@ namespace Pkmn.Overworld.Runtime
 
         void Update()
         {
-            Debug.Log(whereIsTryingToMoveTo);
+            Debug.Log(whereIsTryingToMoveTo + " " + forHowLongIsTryingToMoveToTheSameDirection);
 
             UpdateWhereIsTryingToMoveTo();
             ResetIfJustReleased();
@@ -39,20 +41,31 @@ namespace Pkmn.Overworld.Runtime
 
         void ResetIfJustReleased()
         {
-            if(GetKeyUp(UpArrow) || GetKeyUp(DownArrow) || GetKeyUp(LeftArrow) || GetKeyUp(RightArrow))
-                whereIsTryingToMoveTo = Vector2Int.zero;
+            if (!GetKeyUp(UpArrow) && !GetKeyUp(DownArrow) && !GetKeyUp(LeftArrow) && !GetKeyUp(RightArrow))
+                return;
+            
+            whereIsTryingToMoveTo = Vector2Int.zero;
+            forHowLongIsTryingToMoveToTheSameDirection = TimeSpan.Zero;
         }
 
         void UpdateWhereIsTryingToMoveTo()
         {
-            if (GetKey(UpArrow))
-                whereIsTryingToMoveTo = Vector2Int.up;
-            else if (GetKey(DownArrow))
-                whereIsTryingToMoveTo = Vector2Int.down;
-            else if (GetKey(LeftArrow))
-                whereIsTryingToMoveTo = Vector2Int.left;
-            else if (GetKey(RightArrow))
-                whereIsTryingToMoveTo = Vector2Int.right;
+            if(whereIsTryingToMoveTo == alskdj())
+                forHowLongIsTryingToMoveToTheSameDirection += TimeSpan.FromSeconds(Time.deltaTime);
+            else
+            {
+                forHowLongIsTryingToMoveToTheSameDirection = TimeSpan.Zero;
+                whereIsTryingToMoveTo = alskdj();
+            }
+        }
+
+        Vector2Int alskdj()
+        {
+            return GetKey(UpArrow) ? Vector2Int.up :
+                GetKey(DownArrow) ? Vector2Int.down :
+                GetKey(LeftArrow) ? Vector2Int.left :
+                GetKey(RightArrow) ? Vector2Int.right :
+                Vector2Int.zero;
         }
     }
 }
