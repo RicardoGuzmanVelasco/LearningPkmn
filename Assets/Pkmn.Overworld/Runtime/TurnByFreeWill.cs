@@ -7,6 +7,14 @@ namespace Pkmn.Overworld.Runtime
 {
     public class TurnByFreeWill : MonoBehaviour
     {
+        [SerializeField] Vector2Int[] whereabouts = 
+        {
+            Vector2Int.up,
+            Vector2Int.down,
+            Vector2Int.left,
+            Vector2Int.right
+        };
+
         void Awake()
         {
             Debug.Assert(GetComponent<Turn>());
@@ -21,16 +29,9 @@ namespace Pkmn.Overworld.Runtime
             }
         }
 
-        static Vector2Int RandomDirection()
+        Vector2Int RandomDirection()
         {
-            return Random.Range(0, 4) switch
-            {
-                0 => Vector2Int.up,
-                1 => Vector2Int.down,
-                2 => Vector2Int.left,
-                3 => Vector2Int.right,
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            return whereabouts[Random.Range(0, whereabouts.Length)];
         }
     }
 }
