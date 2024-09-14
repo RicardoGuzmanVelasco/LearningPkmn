@@ -790,6 +790,7 @@ GameObject:
   - component: {fileID: 87379168}
   - component: {fileID: 87379169}
   - component: {fileID: 87379167}
+  - component: {fileID: 87379172}
   m_Layer: 0
   m_Name: Red
   m_TagString: Untagged
@@ -1008,6 +1009,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d9fb73dca4445feb32e71217b75130b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &87379172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87379160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a7a2a4dc294a44a471eb27042290cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &102527679
@@ -1796,6 +1809,7 @@ GameObject:
   - component: {fileID: 290652502}
   - component: {fileID: 290652503}
   - component: {fileID: 290652504}
+  - component: {fileID: 290652505}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -1877,6 +1891,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversation: "La tecnolog\xECa es l'hostia, eh"
+--- !u!114 &290652505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290652499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a7a2a4dc294a44a471eb27042290cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &291653592
 GameObject:
   m_ObjectHideFlags: 0
@@ -5242,6 +5268,7 @@ GameObject:
   - component: {fileID: 900644806}
   - component: {fileID: 900644805}
   - component: {fileID: 900644808}
+  - component: {fileID: 900644809}
   m_Layer: 0
   m_Name: Trainer
   m_TagString: Untagged
@@ -5322,6 +5349,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   challengeTheme: {fileID: 8300000, guid: 31988562115cffb43beb0d02b14c681e, type: 3}
+--- !u!114 &900644809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900644802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a7a2a4dc294a44a471eb27042290cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &908926173
 GameObject:
   m_ObjectHideFlags: 0
@@ -8091,6 +8130,7 @@ GameObject:
   - component: {fileID: 1476867754}
   - component: {fileID: 1476867753}
   - component: {fileID: 1476867752}
+  - component: {fileID: 1476867756}
   m_Layer: 0
   m_Name: Carles Porta
   m_TagString: Untagged
@@ -8172,6 +8212,18 @@ MonoBehaviour:
     up: {fileID: 1555492158, guid: 7f64a9aed35606242bdd342342cddb05, type: 3}
     down: {fileID: -1389634985, guid: 7f64a9aed35606242bdd342342cddb05, type: 3}
     left: {fileID: 1785153593, guid: 7f64a9aed35606242bdd342342cddb05, type: 3}
+--- !u!114 &1476867756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476867750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a7a2a4dc294a44a471eb27042290cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1487158793
 GameObject:
   m_ObjectHideFlags: 0
