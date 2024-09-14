@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using TMPro;
@@ -9,6 +11,7 @@ namespace Pkmn.Overworld.Runtime
     internal class Popup : MonoBehaviour
     {
         [SerializeField] AudioClip okSound;
+        Stack<string> whatToSay = new();
         
         void Awake()
         {
@@ -27,13 +30,29 @@ namespace Pkmn.Overworld.Runtime
         
         public void Say(string[] conversation)
         {
-            GetComponentInChildren<TMP_Text>().text = conversation.First();
+            whatToSay = new(conversation.Reverse());
+            GetComponentInChildren<TMP_Text>().text = whatToSay.Pop();
             GetComponent<CanvasGroup>().alpha = 1;
 
-            FindObjectOfType<Input>().enabled = false;
+            FindObjectOfType<Input>(true).enabled = false;
         }
 
-        public void ShutUp()
+        public void SayMoreOrShutUp()
+        {
+            if (whatToSay.Any())
+                SayMore();
+            else
+                ShutUp();
+            
+        }
+
+        void SayMore()
+        {
+            Say(whatToSay.Pop());
+            GetComponent<AudioSource>().PlayOneShot(okSound);
+        }
+
+        void ShutUp()
         {
             GetComponent<CanvasGroup>().alpha = 0;
             FindObjectOfType<Input>().enabled = true;

@@ -21,7 +21,7 @@ namespace Pkmn.Overworld.Runtime
                 return;
 
             if(FindObjectOfType<Popup>().IsActive)
-                FindObjectOfType<Popup>().ShutUp();
+                FindObjectOfType<Popup>().SayMoreOrShutUp();
         }
     }
 }
