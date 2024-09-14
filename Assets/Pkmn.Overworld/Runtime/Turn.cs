@@ -21,6 +21,7 @@ namespace Pkmn.Overworld.Runtime
 
         public void LookTowards(Vector2Int newDirection)
         {
+            Debug.Assert(newDirection != Vector2Int.zero, this);
             if (newDirection == LookingTowards)
                 return;
             

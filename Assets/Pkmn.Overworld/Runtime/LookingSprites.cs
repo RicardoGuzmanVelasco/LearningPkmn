@@ -17,7 +17,7 @@ namespace Pkmn.Overworld.Runtime
                 _ when direction == Vector2Int.down => down,
                 _ when direction == Vector2Int.left => left,
                 _ when direction == Vector2Int.right => left,
-                _ => throw new ArgumentOutOfRangeException()
+                _ => throw new ArgumentOutOfRangeException(direction.ToString())
             };
 
         public bool MustFlip(Vector2Int direction)

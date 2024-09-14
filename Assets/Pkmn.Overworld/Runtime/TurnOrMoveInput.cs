@@ -19,7 +19,7 @@ namespace Pkmn.Overworld.Runtime
             var direction = WhereToMove();
             if (direction is not null)
                 GetComponent<Move>().MoveTowardsIfIdle(direction.Value);
-            else
+            else if(whereIsTryingToMoveTo != Vector2Int.zero)
                 GetComponent<Turn>().LookTowards(whereIsTryingToMoveTo);
         }
 
