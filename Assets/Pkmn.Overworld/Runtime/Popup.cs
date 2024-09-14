@@ -31,9 +31,9 @@ namespace Pkmn.Overworld.Runtime
         public void Say(string[] conversation)
         {
             whatToSay = new(conversation.Reverse());
+            
             GetComponentInChildren<TMP_Text>().text = whatToSay.Pop();
             GetComponent<CanvasGroup>().alpha = 1;
-
             FindObjectOfType<Input>(true).enabled = false;
         }
 

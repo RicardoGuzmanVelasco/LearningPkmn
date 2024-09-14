@@ -14,12 +14,6 @@ namespace Pkmn.Overworld.Runtime
             GetComponent<Turn>().JustTurned += LookForRed;
         }
 
-        void OnDestroy()
-        {
-            FindObjectOfType<Red>().JustMoved -= LookForRed;
-            GetComponent<Turn>().JustTurned -= LookForRed;
-        }
-
         public void Reply(Vector2Int towards)
         {
             GetComponent<Turn>().LookTowards(towards);
