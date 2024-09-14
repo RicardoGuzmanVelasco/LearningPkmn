@@ -17,8 +17,11 @@ namespace Pkmn.Overworld.Runtime
                 GetComponent<Move>().MoveTowardsIfIdle(direction.Value);
         }
 
-        static Vector2Int? WhereToMove()
+        Vector2Int? WhereToMove()
         {
+            if(forHowLongIsTryingToMoveToTheSameDirection < TimeSpan.FromSeconds(0.2))
+                return null;
+            
             if (GetKey(UpArrow))
                 return Vector2Int.up;
             if (GetKey(DownArrow))
