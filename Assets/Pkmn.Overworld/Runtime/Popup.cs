@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -19,6 +20,14 @@ namespace Pkmn.Overworld.Runtime
         public void Say(string what)
         {
             GetComponentInChildren<TMP_Text>().text = what;
+            GetComponent<CanvasGroup>().alpha = 1;
+
+            FindObjectOfType<Input>().enabled = false;
+        }
+        
+        public void Say(string[] conversation)
+        {
+            GetComponentInChildren<TMP_Text>().text = conversation.First();
             GetComponent<CanvasGroup>().alpha = 1;
 
             FindObjectOfType<Input>().enabled = false;

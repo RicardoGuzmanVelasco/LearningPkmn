@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Pkmn.Overworld.Runtime
 {
     public class Npc : MonoBehaviour, IReply
     {
-        [SerializeField] string[] conversasddtion;
+        [SerializeField] string[] conversation;
 
         public void Reply(Vector2Int towards)
         {
@@ -18,7 +19,7 @@ namespace Pkmn.Overworld.Runtime
         void Speak(Vector2Int towards)
         {
             GetComponent<Turn>().LookTowards(towards);
-            FindObjectOfType<Popup>().Say(conversasddtion.Single());
+            FindObjectOfType<Popup>().Say(conversation);
         }
     }
 }

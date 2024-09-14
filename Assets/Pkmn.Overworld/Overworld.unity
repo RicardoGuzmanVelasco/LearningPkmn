@@ -1890,7 +1890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43739f81238b4ef1b0372a52fa730b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversasddtion:
+  conversation:
   - "La tecnolog\xECa es l'hostia, eh"
 --- !u!114 &290652505
 MonoBehaviour:
@@ -8167,8 +8167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43739f81238b4ef1b0372a52fa730b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversasddtion:
+  conversation:
   - La realitat i la mort...
+  - ...no entenen de sensibilitats.
 --- !u!114 &1476867753
 MonoBehaviour:
   m_ObjectHideFlags: 0
