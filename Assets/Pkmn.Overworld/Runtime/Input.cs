@@ -21,7 +21,10 @@ namespace Pkmn.Overworld.Runtime
                 return;
 
             var inFrontOfRed = FindObjectOfType<Red>().CoordInFront;
-            SpeakIfAnyone(inFrontOfRed);
+            var noActivePopup = FindObjectsOfType<Popup>().All(x => !x.IsActive);
+            
+            if (noActivePopup)
+                SpeakIfAnyone(inFrontOfRed);
         }
 
         static void SpeakIfAnyone(Vector2Int inFrontOfRed)
@@ -34,6 +37,7 @@ namespace Pkmn.Overworld.Runtime
             var coordsOfRed = FindObjectOfType<Red>().WhereIs;
 
             who.Speak(coordsOfRed - coordsOfNpc);
+            FindObjectOfType<PopupInput>(true).enabled = true;
         }
 
         void HandleRepel()

@@ -1,9 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Pkmn.Overworld.Runtime
 {
     public class PopupInput : MonoBehaviour
     {
+        void Awake()
+        {
+            enabled = false;
+        }
+
         void Update()
         {
             HandlePopup();
