@@ -13,6 +13,9 @@ namespace Pkmn.Overworld.Runtime
 
         internal void Handle()
         {
+            UpdateWhereIsTryingToMoveTo();
+            ResetIfJustReleased();
+            
             var direction = WhereToMove();
             if (direction is not null)
                 GetComponent<Move>().MoveTowardsIfIdle(direction.Value);
@@ -35,12 +38,6 @@ namespace Pkmn.Overworld.Runtime
                 return Vector2Int.right;
 
             return null;
-        }
-
-        void Update()
-        {
-            UpdateWhereIsTryingToMoveTo();
-            ResetIfJustReleased();
         }
 
         void ResetIfJustReleased()
