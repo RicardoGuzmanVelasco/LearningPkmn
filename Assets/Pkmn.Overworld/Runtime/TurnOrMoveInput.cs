@@ -5,11 +5,21 @@ namespace Pkmn.Overworld.Runtime
 {
     public class TurnOrMoveInput : MonoBehaviour
     {
-        internal void HandleMovement()
+        internal void Handle()
         {
-            var direction = WhereToMove();
-            if (direction is not null)
-                GetComponent<Move>().MoveTowardsIfIdle(direction.Value);
+            if (MustMove())
+            {
+                var direction = WhereToMove();
+                if (direction is not null)
+                    GetComponent<Move>().MoveTowardsIfIdle(direction.Value);
+            }
+            else
+                throw new NotImplementedException();
+        }
+
+        bool MustMove()
+        {
+            return true;
         }
 
         static Vector2Int? WhereToMove()

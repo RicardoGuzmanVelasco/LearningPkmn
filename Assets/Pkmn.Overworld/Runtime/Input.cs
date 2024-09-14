@@ -8,7 +8,7 @@ namespace Pkmn.Overworld.Runtime
         void Update()
         {
             HandleDialogue();
-            FindObjectOfType<TurnOrMoveInput>().HandleMovement();
+            FindObjectOfType<TurnOrMoveInput>().Handle();
             HandleTurn();
             HandleRepel();
         }
