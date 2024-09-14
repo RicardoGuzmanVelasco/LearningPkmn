@@ -5,7 +5,7 @@ namespace Pkmn.Overworld.Runtime
     internal class Township : MonoBehaviour
     {
         [SerializeField] string mapArea;
-        static string currentMapArea = "";
+        static string currentMapArea = "Passeig dels tillers";
         
         void Awake()
         {

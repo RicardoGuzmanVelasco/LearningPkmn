@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 
@@ -7,7 +8,14 @@ namespace Pkmn.Overworld.Runtime
     internal class Music : MonoBehaviour
     {
         bool firstIsPlaying = false;
-        
+ 
+        [SerializeField] AudioClip themeToBeginWith;
+
+        void Awake()
+        {
+            Play(themeToBeginWith);
+        }
+
         public bool IsPlaying(AudioClip clip)
             => GetComponentsInChildren<AudioSource>()[firstIsPlaying ? 0 : 1].clip == clip; 
         
