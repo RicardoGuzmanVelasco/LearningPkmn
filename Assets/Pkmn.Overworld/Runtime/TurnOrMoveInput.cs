@@ -7,7 +7,7 @@ namespace Pkmn.Overworld.Runtime
 {
     public class TurnOrMoveInput : MonoBehaviour
     {
-        static readonly TimeSpan ThresholdToMove = TimeSpan.FromSeconds(0.2);
+        static readonly TimeSpan ThresholdToMove = TimeSpan.FromSeconds(0.075);
         Vector2Int whereIsTryingToMoveTo;
         TimeSpan forHowLongIsTryingToMoveToTheSameDirection;
 
@@ -39,8 +39,6 @@ namespace Pkmn.Overworld.Runtime
 
         void Update()
         {
-            Debug.Log(whereIsTryingToMoveTo + " " + forHowLongIsTryingToMoveToTheSameDirection);
-
             UpdateWhereIsTryingToMoveTo();
             ResetIfJustReleased();
         }
