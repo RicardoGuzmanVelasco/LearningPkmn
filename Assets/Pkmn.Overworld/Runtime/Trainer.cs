@@ -38,6 +38,7 @@ namespace Pkmn.Overworld.Runtime
         {
             FindObjectOfType<Popup>().Say("Combatem, si us plau!");
             FindObjectOfType<Music>().PlayInterrupting(challengeTheme);
+            FindObjectOfType<PopupInput>(true).enabled = false;
         }
     }
 }
