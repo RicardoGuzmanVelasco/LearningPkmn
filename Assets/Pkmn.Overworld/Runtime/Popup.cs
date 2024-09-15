@@ -38,7 +38,6 @@ namespace Pkmn.Overworld.Runtime
                 SayMore();
             else
                 ShutUp();
-            
         }
 
         void SayMore()

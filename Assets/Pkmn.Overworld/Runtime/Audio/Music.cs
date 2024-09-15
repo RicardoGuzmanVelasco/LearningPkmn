@@ -19,7 +19,7 @@ namespace Pkmn.Overworld.Runtime
         public bool IsPlaying(AudioClip clip)
             => GetComponentsInChildren<AudioSource>()[firstIsPlaying ? 0 : 1].clip == clip;
 
-        public void PlayInterrumping(AudioClip theme)
+        public void PlayInterrupting(AudioClip theme)
         {
             SwapClipWith(theme);
             firstIsPlaying = !firstIsPlaying;
