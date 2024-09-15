@@ -35,7 +35,7 @@ namespace Pkmn.Overworld.Runtime
         void JumpOver()
         {
             GetComponent<IsInTheWorld>().hasMass = false;
-            FindObjectOfType<Red>().transform.position = FindObjectOfType<Red>().transform.position + Vector3.down;
+            FindObjectOfType<Red>().transform.position += Vector3.down;
         }
 
         bool RedIsAboutToStepIn()
