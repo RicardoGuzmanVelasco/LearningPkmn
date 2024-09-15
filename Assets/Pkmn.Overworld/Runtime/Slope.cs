@@ -25,11 +25,17 @@ namespace Pkmn.Overworld.Runtime
             if (DeDóndeVieneRed - FindObjectOfType<Red>().CoordInFront == Vector2Int.down)
                 GetComponent<IsInTheWorld>().hasMass = true;
             else if (DeDóndeVieneRed - FindObjectOfType<Red>().CoordInFront == Vector2Int.up)
-                GetComponent<IsInTheWorld>().hasMass = false;
+                JumpOver();
             else
                 GetComponent<IsInTheWorld>().hasMass = true;
 
             DeDóndeVieneRed = FindObjectOfType<Red>().CoordInFront;
+        }
+
+        void JumpOver()
+        {
+            GetComponent<IsInTheWorld>().hasMass = false;
+            FindObjectOfType<Red>().transform.position = FindObjectOfType<Red>().transform.position + Vector3.down;
         }
 
         bool RedIsAboutToStepIn()
