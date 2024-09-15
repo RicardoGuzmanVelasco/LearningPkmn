@@ -6,6 +6,7 @@ namespace Pkmn.Overworld.Runtime
 {
     public class Trainer : MonoBehaviour, IReply
     {
+        [SerializeField] string[] conversation;
         [SerializeField] AudioClip challengeTheme;
         
         void Awake()
@@ -36,7 +37,7 @@ namespace Pkmn.Overworld.Runtime
 
         void ChallengeRed()
         {
-            FindObjectOfType<Popup>().Say("Combatem, si us plau!");
+            FindObjectOfType<Popup>().Say(conversation);
             FindObjectOfType<Music>().PlayInterrupting(challengeTheme);
             FindObjectOfType<PopupInput>(true).enabled = false;
         }
