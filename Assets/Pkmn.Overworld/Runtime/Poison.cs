@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Linq;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Pkmn.Overworld.Runtime
 {
@@ -22,9 +25,19 @@ namespace Pkmn.Overworld.Runtime
                 return;
 
             currentCooldown++;
-            
-            if (currentCooldown % PoisonCooldownSteps == 0)
-                GetComponent<AudioSource>().PlayOneShot(poisonSound);
+            if (PoisonMakesEffectNow())
+                MakePoisonEffect();
+        }
+
+        void MakePoisonEffect()
+        {
+            GetComponent<AudioSource>().PlayOneShot(poisonSound);
+            FindObjectsOfType<Image>().Single(x => x.name == "PoisonEffect").DOFade(1, .0825f).SetLoops(4, LoopType.Yoyo);
+        }
+
+        bool PoisonMakesEffectNow()
+        {
+            return currentCooldown % PoisonCooldownSteps == 0;
         }
     }
 }
