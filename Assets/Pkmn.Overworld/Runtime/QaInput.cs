@@ -16,8 +16,8 @@ namespace Pkmn.Overworld.Runtime
             if (!UnityEngine.Input.GetKeyDown(KeyCode.V))
                 return;
 
-            FindObjectOfType<Poison>().poisoned = !FindObjectOfType<Poison>().poisoned;
-            LogAbout("poison toggled to " + FindObjectOfType<Poison>().poisoned);
+            FindObjectOfType<Poison>().Poisoned = !FindObjectOfType<Poison>().Poisoned;
+            LogAbout("poison toggled to " + FindObjectOfType<Poison>().Poisoned);
         }
 
         static void HandleSpeed()

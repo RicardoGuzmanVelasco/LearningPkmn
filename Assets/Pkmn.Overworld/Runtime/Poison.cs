@@ -5,8 +5,11 @@ namespace Pkmn.Overworld.Runtime
 {
     internal class Poison : MonoBehaviour
     {
+        const int PoisonCooldownSteps = 4;
+        int currentCooldown;
+        
         [SerializeField] AudioClip poisonSound;
-        [SerializeField] internal bool poisoned;
+        internal bool Poisoned;
         
         void Awake()
         {
@@ -15,7 +18,12 @@ namespace Pkmn.Overworld.Runtime
 
         void FeedbackIfPoisoned()
         {
-            if(poisoned)
+            if (!Poisoned)
+                return;
+
+            currentCooldown++;
+            
+            if (currentCooldown % PoisonCooldownSteps == 0)
                 GetComponent<AudioSource>().PlayOneShot(poisonSound);
         }
     }
