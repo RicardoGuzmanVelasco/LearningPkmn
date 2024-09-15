@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using static UnityEngine.Object;
 
 namespace Pkmn.Overworld.Runtime
 {
-    public class QaInput : MonoBehaviour
+    public class QaInput
     {
         public void Handle()
         {
@@ -11,7 +12,7 @@ namespace Pkmn.Overworld.Runtime
             HandlePoisonToggle();
         }
 
-        void HandlePoisonToggle()
+        static void HandlePoisonToggle()
         {
             if (!UnityEngine.Input.GetKeyDown(KeyCode.V))
                 return;
