@@ -32,6 +32,8 @@ rectangle PopupAlFinDelRepelente
 rectangle NPC #technology
 rectangle MovimientoRestringido 
 
+rectangle Veneno #implementation
+
 rectangle Bloqueables #technology
 rectangle SonidoNnngh #technology
 rectangle Desniveles #technology
