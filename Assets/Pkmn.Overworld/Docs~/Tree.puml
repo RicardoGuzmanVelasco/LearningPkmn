@@ -40,10 +40,6 @@ rectangle Mapa
 rectangle CambiarDeZona
 rectangle CambioDeTérminoMunicipal #technology
 
-rectangle Acelerar #application
-rectangle VelocidadDoduo #application
-rectangle VelocidadDodrio #application
-
 Input -- MismosBotonesGirarYMoverse
 Movimiento -- AnimarPasos
 
@@ -76,9 +72,6 @@ Bloqueables -- SonidoNnngh
 
 Mapa -- CambiarDeZona
 Mapa -- CambioDeTérminoMunicipal
-
-Acelerar -- VelocidadDoduo
-Acelerar -- VelocidadDodrio
 
 
 @enduml
