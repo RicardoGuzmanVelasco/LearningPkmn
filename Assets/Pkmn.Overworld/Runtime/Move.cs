@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using DG.Tweening;
 using UnityEngine;
     
 namespace Pkmn.Overworld.Runtime
 {
     public class Move : MonoBehaviour
     {
-        static readonly TimeSpan MovementTick = TimeSpan.FromSeconds(.4f);
+        static readonly TimeSpan MovementTick = TimeSpan.FromSeconds(.333f);
         TimeSpan moveCooldown = TimeSpan.Zero;
         
         public event Action JustMoved = () => {};
@@ -41,9 +40,9 @@ namespace Pkmn.Overworld.Runtime
         async void MoveTo(Vector2Int towards)
         {
             transform.position += new Vector3(towards.x, towards.y);
-            
-            await Task.Delay(MovementTick);
+            //Cuando haya animación hay que esperar a la animación antes del evento.
             JustMoved.Invoke();
+            await Task.Delay(MovementTick);
         }
 
         Vector2Int Destiny(Vector2Int fadsfasdf)
