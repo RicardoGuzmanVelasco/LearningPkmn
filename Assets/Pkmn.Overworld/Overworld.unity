@@ -1124,6 +1124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c71318cf9548c183b03ae7901691c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poisonSound: {fileID: 8300000, guid: 5c113fa1df4fc0449af6bac9e833e879, type: 3}
   poisoned: 0
 --- !u!1 &102527679
 GameObject:
