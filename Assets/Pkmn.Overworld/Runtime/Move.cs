@@ -42,7 +42,6 @@ namespace Pkmn.Overworld.Runtime
             transform.position += new Vector3(towards.x, towards.y);
             //Cuando haya animación hay que esperar a la animación antes del evento.
             JustMoved.Invoke();
-            await Task.Delay(MovementTick);
         }
 
         Vector2Int Destiny(Vector2Int fadsfasdf)
