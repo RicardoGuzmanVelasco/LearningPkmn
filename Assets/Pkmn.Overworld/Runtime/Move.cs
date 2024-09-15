@@ -12,14 +12,7 @@ namespace Pkmn.Overworld.Runtime
         
         public event Action JustMoved = () => {};
         public event Action CouldNotAdvance = () => {};
-
-        Tween MoveSprite(Vector2Int towards)
-        {
-            return GetComponentInChildren<SpriteRenderer>().transform
-                .DOLocalMove(new(-towards.x, -towards.y), (float)MovementTick.TotalSeconds)
-                .From(); 
-        }
-
+        
         public void MoveTowardsIfIdle(Vector2Int direction)
         {
             moveCooldown -= TimeSpan.FromSeconds(Time.deltaTime);
