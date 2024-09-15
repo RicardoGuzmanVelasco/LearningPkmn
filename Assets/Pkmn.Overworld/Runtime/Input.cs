@@ -35,7 +35,6 @@ namespace Pkmn.Overworld.Runtime
             var coordsOfRed = FindObjectOfType<Red>().WhereIs;
 
             who.Reply(coordsOfRed - coordsOfNpc);
-            FindObjectOfType<PopupInput>(true).enabled = true;
         }
 
         void HandleRepel()

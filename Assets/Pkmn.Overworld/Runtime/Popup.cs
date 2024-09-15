@@ -30,6 +30,7 @@ namespace Pkmn.Overworld.Runtime
             GetComponentInChildren<TMP_Text>().text = whatToSay.Pop();
             GetComponent<CanvasGroup>().alpha = 1;
             FindObjectOfType<Input>(true).enabled = false;
+            FindObjectOfType<PopupInput>(true).enabled = true;
         }
 
         public void SayMoreOrShutUp()
