@@ -3,7 +3,8 @@
     "rootNamespace": "",
     "references": [
         "DOTween.Modules",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "Pkmn.Overworld.Domain"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -44,7 +44,6 @@ namespace Pkmn.Overworld.Runtime
         {
             if (remainingSteps > 0)
                 remainingSteps--;
-            Debug.Log($"Repel steps left: {remainingSteps}");
         }
     }
 }
