@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Pkmn.Overworld.Runtime
 {
@@ -11,12 +12,13 @@ namespace Pkmn.Overworld.Runtime
         public event Action AboutToTurn = () => { };
         public event Action JustTurned = () => { };
         
-        [SerializeField]
-        LookingSprites sprites;
+        [SerializeField] LookingSprites sprites;
+        [SerializeField] Vector2Int beginLookingAt = Vector2Int.down;
+        
 
         void Start()
         {
-            LookTowards(Vector2Int.down);
+            LookTowards(beginLookingAt);
         }
 
         public void LookTowards(Vector2Int newDirection)
@@ -39,7 +41,7 @@ namespace Pkmn.Overworld.Runtime
 
         void OnValidate()
         {
-            LookTowards(Vector2Int.down);
+            LookTowards(beginLookingAt);
         }
     }
 }
