@@ -13,6 +13,11 @@ namespace Pkmn.Overworld.Runtime
             add => GetComponent<Turn>().AboutToTurn += value;
             remove => GetComponent<Turn>().AboutToTurn -= value;
         }
+        public event Action AboutToMove
+        {
+            add => GetComponent<Move>().AboutToMove += value;
+            remove => GetComponent<Move>().AboutToMove -= value;
+        }
         public event Action JustMoved
         {
             add => GetComponent<Move>().JustMoved += value;

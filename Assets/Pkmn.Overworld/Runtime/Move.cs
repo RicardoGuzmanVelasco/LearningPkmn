@@ -9,6 +9,7 @@ namespace Pkmn.Overworld.Runtime
         static readonly TimeSpan MovementTick = TimeSpan.FromSeconds(.333f);
         TimeSpan moveCooldown = TimeSpan.Zero;
         
+        public event Action AboutToMove = () => {};
         public event Action JustMoved = () => {};
         public event Action CouldNotAdvance = () => {};
         
@@ -30,6 +31,7 @@ namespace Pkmn.Overworld.Runtime
         void TurnAndMoveTowards(Vector2Int towards)
         {
             GetComponent<Turn>().LookTowards(towards);
+            AboutToMove.Invoke();
 
             if(FindObjectOfType<World>().IsNavigationable(Destiny(towards)))
                 MoveTo(towards);
