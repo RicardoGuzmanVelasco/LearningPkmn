@@ -6,24 +6,43 @@ namespace Pkmn.Overworld.Runtime
     {
         public void Handle()
         {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.K))
-                DisableFreeWill();
-            if (UnityEngine.Input.GetKeyDown(KeyCode.L))
-                EnableFreeWill();
+            HandleFreeWill();
+            HandleSpeed();
+            HandlePoisonToggle();
+        }
 
+        void HandlePoisonToggle()
+        {
+            if (!UnityEngine.Input.GetKeyDown(KeyCode.V))
+                return;
+
+            FindObjectOfType<Poison>().poisoned = !FindObjectOfType<Poison>().poisoned;
+            LogAbout("poison toggled to " + FindObjectOfType<Poison>().poisoned);
+        }
+
+        static void HandleSpeed()
+        {
             if (UnityEngine.Input.GetKeyDown(KeyCode.KeypadPlus))
                 SpeedUp();
             if (UnityEngine.Input.GetKeyDown(KeyCode.KeypadMinus))
                 SlowDown();
         }
 
-        void SpeedUp()
+        static void HandleFreeWill()
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.K))
+                DisableFreeWill();
+            if (UnityEngine.Input.GetKeyDown(KeyCode.L))
+                EnableFreeWill();
+        }
+
+        static void SpeedUp()
         {
             Time.timeScale++;
             LogAbout($"Speed up! Time scale: {Time.timeScale}");
         }
-        
-        void SlowDown()
+
+        static void SlowDown()
         {
             Time.timeScale--;
             LogAbout($"Slow down! Time scale: {Time.timeScale}");
@@ -40,7 +59,7 @@ namespace Pkmn.Overworld.Runtime
             FindObjectOfType<MasterOfPuppets>().DisableFreeWill();
             LogAbout("Free will disabled");
         }
-        
+
         static void LogAbout(string what)
         {
             Debug.Log($"[QA] {what}");
