@@ -10,6 +10,7 @@ namespace Pkmn.Overworld.Runtime
             HandleDialogue();
             FindObjectOfType<TurnOrMoveInput>().Handle();
             HandleRepel();
+            FindObjectOfType<QaInput>().Handle();
         }
 
         void HandleDialogue()
