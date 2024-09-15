@@ -11,16 +11,16 @@ rectangle OrdenDeSucesos
 rectangle Audio #technology
 rectangle Pasos
 rectangle Música #technology
-rectangle CambioDeMúsica #implementation
-rectangle DesdeElEmpezar
+rectangle CambioDeMúsica #technology
+rectangle DesdeElEmpezar #technology
 rectangle DecidirEntreVariasALaVez #implementation
 
 rectangle Interaccionables
 rectangle Hablar #technology
 rectangle Conversar
 rectangle TeMiraElNCP #technology
-rectangle PararElMundo
-rectangle ElNpcNoPasaLuegoDeTi #implementation
+rectangle PararElMundo #khaki
+rectangle ElNpcNoPasaLuegoDeTi #technology
 rectangle "¿?" as InteraccionablesFuturo #transparent
 
 rectangle ZonaSalvaje #technology
@@ -28,16 +28,17 @@ rectangle Repelente #technology
 rectangle PorNivel
 rectangle SonidoAlEcharse
 rectangle Huevo
-rectangle PopupAlFinDelRepelente
+rectangle PopupAlFinDelRepelente #technology
 rectangle NPC #technology
 rectangle MovimientoRestringido 
-
-rectangle Veneno #implementation
 
 rectangle Bloqueables #technology
 rectangle SonidoNnngh #technology
 rectangle Desniveles #technology
 rectangle NoSoloHaciaAbajo #implementation
+
+rectangle Popups #technology
+rectangle TypewriterEffect
 
 rectangle Mapa 
 rectangle CambiarDeZona
@@ -45,6 +46,8 @@ rectangle CambioDeTérminoMunicipal #technology
 
 Input -- MismosBotonesGirarYMoverse
 Movimiento -- AnimarPasos
+
+Popups -- TypewriterEffect
 
 Detección -- Combate
 Detección .. OrdenDeSucesos
