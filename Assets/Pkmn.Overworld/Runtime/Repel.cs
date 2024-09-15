@@ -5,6 +5,8 @@ namespace Pkmn.Overworld.Runtime
 {
     internal class Repel : MonoBehaviour
     {
+        [SerializeField] AudioClip psssssh;
+        
         int remainingSteps;
 
         public bool IsActive => remainingSteps > 0;
@@ -16,7 +18,8 @@ namespace Pkmn.Overworld.Runtime
 
         public void Spray()
         {
-            Debug.Log("Repel sprayed!");
+            GetComponent<AudioSource>().PlayOneShot(psssssh);
+            FindObjectOfType<Popup>().Say("Repel sprayed!");
             remainingSteps = 5;
         }
 
