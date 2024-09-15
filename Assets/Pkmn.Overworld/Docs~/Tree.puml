@@ -34,7 +34,8 @@ rectangle MovimientoRestringido
 
 rectangle Bloqueables #technology
 rectangle SonidoNnngh #technology
-rectangle Desniveles #implementation
+rectangle Desniveles #technology
+rectangle NoSoloHaciaAbajo #implementation
 
 rectangle Mapa 
 rectangle CambiarDeZona
@@ -69,6 +70,7 @@ NPC -- MovimientoRestringido
 
 Bloqueables -- Desniveles
 Bloqueables -- SonidoNnngh
+Desniveles -- NoSoloHaciaAbajo
 
 Mapa -- CambiarDeZona
 Mapa -- CambioDeTérminoMunicipal
