@@ -6,33 +6,35 @@ namespace Pkmn.Overworld.Runtime
     internal class Slope : MonoBehaviour
     {
         Vector2Int DeDóndeVieneRed;
+
         void Awake()
         {
             DeDóndeVieneRed = FindObjectOfType<Red>().WhereIs;
-            
-            FindObjectOfType<Red>().JustMoved += alsjkf;
+
+            FindObjectOfType<Red>().AboutToMove += sdgasdgasdg;
         }
 
-        void alsjkf()
+        void sdgasdgasdg()
         {
-            if(RedIsNotHere())
+            if (!RedIsAboutToStepIn())
             {
-                DeDóndeVieneRed = FindObjectOfType<Red>().WhereIs;
+                DeDóndeVieneRed = FindObjectOfType<Red>().CoordInFront;
                 return;
             }
-            
-            if(DeDóndeVieneRed - FindObjectOfType<Red>().WhereIs == Vector2Int.down)
-                Debug.Log("Subir");
-            else if (DeDóndeVieneRed - FindObjectOfType<Red>().WhereIs == Vector2Int.up)
-                Debug.Log("Bajar");
+
+            if (DeDóndeVieneRed - FindObjectOfType<Red>().CoordInFront == Vector2Int.down)
+                GetComponent<IsInTheWorld>().hasMass = true;
+            else if (DeDóndeVieneRed - FindObjectOfType<Red>().CoordInFront == Vector2Int.up)
+                GetComponent<IsInTheWorld>().hasMass = false;
             else
-                Debug.Log("Vengo de lado");
-            DeDóndeVieneRed = FindObjectOfType<Red>().WhereIs;
+                GetComponent<IsInTheWorld>().hasMass = true;
+
+            DeDóndeVieneRed = FindObjectOfType<Red>().CoordInFront;
         }
 
-        bool RedIsNotHere()
+        bool RedIsAboutToStepIn()
         {
-            return FindObjectOfType<Red>().WhereIs != GetComponent<IsInTheWorld>().Coords;
+            return FindObjectOfType<Red>().CoordInFront == GetComponent<IsInTheWorld>().Coords;
         }
     }
 }
