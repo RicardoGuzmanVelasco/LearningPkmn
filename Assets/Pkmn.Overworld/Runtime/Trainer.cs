@@ -9,8 +9,6 @@ namespace Pkmn.Overworld.Runtime
         [SerializeField] string[] conversation;
         [SerializeField] AudioClip challengeTheme;
         
-        public event Action JustChallengedRed = () => { };
-        
         void Awake()
         {
             FindObjectOfType<Red>().JustMoved += LookForRed;
@@ -39,11 +37,8 @@ namespace Pkmn.Overworld.Runtime
 
         void ChallengeRed()
         {
-            JustChallengedRed();
-            
             FindObjectOfType<Popup>().Say(conversation);
             FindObjectOfType<Music>().PlayInterrupting(challengeTheme);
-            FindObjectOfType<PopupInput>(true).enabled = false;
         }
     }
 }

@@ -31,6 +31,7 @@ namespace Pkmn.Overworld.Runtime
             GetComponent<CanvasGroup>().alpha = 1;
             FindObjectOfType<Input>(true).enabled = false;
             FindObjectOfType<PopupInput>(true).enabled = true;
+            FindObjectOfType<MasterOfPuppets>().DisableFreeWill();
         }
 
         public void SayMoreOrShutUp()
@@ -52,6 +53,7 @@ namespace Pkmn.Overworld.Runtime
             GetComponent<CanvasGroup>().alpha = 0;
             FindObjectOfType<Input>().enabled = true;
             GetComponent<AudioSource>().PlayOneShot(okSound);
+            FindObjectOfType<MasterOfPuppets>().EnableFreeWill();
         }
     }
 }
