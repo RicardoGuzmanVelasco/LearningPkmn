@@ -25,6 +25,8 @@ namespace Pkmn.Overworld.Runtime
             while (!destroyCancellationToken.IsCancellationRequested)
             {
                 yield return new WaitForSeconds(Random.Range(2f, 5f));
+                if(!enabled)
+                    continue;
                 GetComponent<Turn>().LookTowards(RandomDirection());
             }
         }
