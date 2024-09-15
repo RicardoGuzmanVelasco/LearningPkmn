@@ -5,6 +5,7 @@ using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Pkmn.Overworld.Runtime
 {
@@ -20,16 +21,10 @@ namespace Pkmn.Overworld.Runtime
         
         public bool IsActive => GetComponent<CanvasGroup>().alpha > 0;
 
-        public void Say(string what)
+        public void Say(params string[] conversation)
         {
-            GetComponentInChildren<TMP_Text>().text = what;
-            GetComponent<CanvasGroup>().alpha = 1;
-
-            FindObjectOfType<Input>().enabled = false;
-        }
-        
-        public void Say(string[] conversation)
-        {
+            Assert.IsNotNull(conversation);
+            
             whatToSay = new(conversation.Reverse());
             
             GetComponentInChildren<TMP_Text>().text = whatToSay.Pop();
