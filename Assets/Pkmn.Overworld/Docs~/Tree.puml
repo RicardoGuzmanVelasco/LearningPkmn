@@ -30,7 +30,6 @@ rectangle SonidoAlEcharse
 rectangle Huevo
 rectangle PopupAlFinDelRepelente
 rectangle NPC #technology
-rectangle RestringirDóndeMira #application
 rectangle MovimientoRestringido 
 
 rectangle Bloqueables #technology
@@ -70,7 +69,6 @@ Repelente -- SonidoAlEcharse
 Repelente - Huevo
 Repelente -- PopupAlFinDelRepelente
 
-NPC -- RestringirDóndeMira
 NPC -- MovimientoRestringido
 
 Bloqueables -- Desniveles
