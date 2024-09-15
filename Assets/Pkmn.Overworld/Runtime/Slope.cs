@@ -5,6 +5,7 @@ namespace Pkmn.Overworld.Runtime
 {
     internal class Slope : MonoBehaviour
     {
+        [SerializeField] AudioClip jumpSound;
         Vector2Int DeDóndeVieneRed;
 
         void Awake()
@@ -36,6 +37,7 @@ namespace Pkmn.Overworld.Runtime
         {
             GetComponent<IsInTheWorld>().hasMass = false;
             FindObjectOfType<Red>().transform.position += Vector3.down;
+            GetComponent<AudioSource>().PlayOneShot(jumpSound);
         }
 
         bool RedIsAboutToStepIn()
