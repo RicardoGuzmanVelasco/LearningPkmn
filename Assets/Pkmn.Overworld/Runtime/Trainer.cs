@@ -37,7 +37,7 @@ namespace Pkmn.Overworld.Runtime
         void ChallengeRed()
         {
             FindObjectOfType<Popup>().Say("Combatem, si us plau!");
-            FindObjectOfType<Music>().Play(challengeTheme);
+            FindObjectOfType<Music>().PlayInterrumping(challengeTheme);
         }
     }
 }

@@ -17,21 +17,35 @@ namespace Pkmn.Overworld.Runtime
         }
 
         public bool IsPlaying(AudioClip clip)
-            => GetComponentsInChildren<AudioSource>()[firstIsPlaying ? 0 : 1].clip == clip; 
-        
+            => GetComponentsInChildren<AudioSource>()[firstIsPlaying ? 0 : 1].clip == clip;
+
+        public void PlayInterrumping(AudioClip theme)
+        {
+            SwapClipWith(theme);
+            firstIsPlaying = !firstIsPlaying;
+        }
         public void Play(AudioClip theme)
         {
             CrossFadeWith(theme);
             firstIsPlaying = !firstIsPlaying;
         }
 
+        void SwapClipWith(AudioClip theme)
+        {
+            SourceToFadeOut().volume = 0;
+            SourceToFadeIn().volume = 1;
+            
+            SourceToFadeIn().clip = theme;
+            SourceToFadeIn().Play();
+        }
+        
         void CrossFadeWith(AudioClip theme)
         {
             SourceToFadeOut().DOFade(0, 1f);
-            
-            SourceToFadeIn().DOFade(1, 1f);
+
+            SourceToFadeIn().volume = 1;
             SourceToFadeIn().clip = theme;
-            SourceToFadeIn().Play();
+            SourceToFadeIn().PlayDelayed(1);
         }
 
         AudioSource SourceToFadeIn()
