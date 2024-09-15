@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Pkmn.Overworld.Runtime
 {
-    public class RedAudioFeedback : MonoBehaviour
+     public class AudioFeedback : MonoBehaviour
     {
         [SerializeField] AudioClip couldNotAdvance;
         
