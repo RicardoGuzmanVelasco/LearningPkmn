@@ -8,6 +8,10 @@ using Random = UnityEngine.Random;
 
 public class MoveByFreeWill : MonoBehaviour
 {
+    [SerializeField] Vector2Int[] route;
+
+    int step = 0;
+    
     IEnumerator Start()
     {
         while (!destroyCancellationToken.IsCancellationRequested)
@@ -16,7 +20,16 @@ public class MoveByFreeWill : MonoBehaviour
             if(!enabled)
                 continue;
             
-            GetComponent<Move>().MoveTowardsIfIdle(Vector2Int.left);
+            MoveInRoute();
         }
+    }
+
+    void MoveInRoute()
+    {
+        if(step == route.Length)
+            return;
+        
+        GetComponent<Move>().MoveTowardsIfIdle(route[step]);
+        step++;
     }
 }

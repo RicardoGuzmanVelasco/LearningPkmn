@@ -9268,6 +9268,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b76f4dd715cf3489977e8fd50146fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  route:
+  - {x: -1, y: 0}
+  - {x: -1, y: 0}
+  - {x: 0, y: -1}
 --- !u!114 &1476867758
 MonoBehaviour:
   m_ObjectHideFlags: 0
