@@ -46,26 +46,21 @@ namespace Pkmn.Overworld.Runtime
 
         void SwapClipWith(AudioClip theme)
         {
-            SourceToFadeIn().clip = theme;
-            SourceToFadeIn().Play();
+            Source().clip = theme;
+            Source().Play();
         }
         
         void CrossFadeWith(AudioClip theme)
         {
-            SourceToFadeOut().DOFade(0, 1f).OnComplete(() =>
+            Source().DOFade(0, 1f).OnComplete(() =>
             {
-                SourceToFadeIn().volume = 1;
-                SourceToFadeIn().clip = theme;
-                SourceToFadeIn().Play();
+                Source().volume = 1;
+                Source().clip = theme;
+                Source().Play();
             });
         }
 
-        AudioSource SourceToFadeIn()
-        {
-            return GetComponentsInChildren<AudioSource>().First();
-        }
-
-        AudioSource SourceToFadeOut()
+        AudioSource Source()
         {
             return GetComponentsInChildren<AudioSource>().First();
         }
