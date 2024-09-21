@@ -9158,6 +9158,8 @@ GameObject:
   - component: {fileID: 1476867753}
   - component: {fileID: 1476867752}
   - component: {fileID: 1476867756}
+  - component: {fileID: 1476867757}
+  - component: {fileID: 1476867758}
   m_Layer: 0
   m_Name: Carles Porta
   m_TagString: Untagged
@@ -9252,6 +9254,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18a7a2a4dc294a44a471eb27042290cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1476867757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476867750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b76f4dd715cf3489977e8fd50146fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1476867758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476867750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413f8efe1a2b419582152cea5e71cc5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1487158793
