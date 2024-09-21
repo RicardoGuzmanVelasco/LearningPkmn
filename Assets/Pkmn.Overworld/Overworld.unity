@@ -5673,6 +5673,7 @@ GameObject:
   - component: {fileID: 900644805}
   - component: {fileID: 900644808}
   - component: {fileID: 900644809}
+  - component: {fileID: 900644810}
   m_Layer: 0
   m_Name: Trainer
   m_TagString: Untagged
@@ -5769,6 +5770,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a7a2a4dc294a44a471eb27042290cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &900644810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900644802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43739f81238b4ef1b0372a52fa730b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversation:
+  - "Aix\xF2 no pot ser..."
 --- !u!1 &908926173
 GameObject:
   m_ObjectHideFlags: 0
@@ -6115,6 +6130,7 @@ GameObject:
   - component: {fileID: 956720347}
   - component: {fileID: 956720346}
   - component: {fileID: 956720345}
+  - component: {fileID: 956720350}
   m_Layer: 0
   m_Name: AnotherTrainer
   m_TagString: Untagged
@@ -6210,6 +6226,20 @@ MonoBehaviour:
     down: {fileID: -1389634985, guid: 7f64a9aed35606242bdd342342cddb05, type: 3}
     left: {fileID: 1785153593, guid: 7f64a9aed35606242bdd342342cddb05, type: 3}
   beginLookingAt: {x: 0, y: 1}
+--- !u!114 &956720350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956720343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43739f81238b4ef1b0372a52fa730b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversation:
+  - He perdut...
 --- !u!1 &971885363
 GameObject:
   m_ObjectHideFlags: 0
