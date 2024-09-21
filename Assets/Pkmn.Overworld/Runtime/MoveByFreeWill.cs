@@ -10,10 +10,12 @@ public class MoveByFreeWill : MonoBehaviour
 {
     [SerializeField] Vector2Int[] route;
 
+    List<Vector2Int> currentRoute;
     int step = 0;
     
     IEnumerator Start()
     {
+        currentRoute = new(route);
         while (!destroyCancellationToken.IsCancellationRequested)
         {
             yield return new WaitForSeconds(Random.Range(2f, 5f));
@@ -26,10 +28,10 @@ public class MoveByFreeWill : MonoBehaviour
 
     void MoveInRoute()
     {
-        if(step == route.Length)
+        if(step == currentRoute.Count)
             return;
         
-        GetComponent<Move>().MoveTowardsIfIdle(route[step]);
+        GetComponent<Move>().MoveTowardsIfIdle(currentRoute[step]);
         step++;
     }
 }
