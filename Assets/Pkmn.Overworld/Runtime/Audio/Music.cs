@@ -7,8 +7,6 @@ namespace Pkmn.Overworld.Runtime
 {
     internal class Music : MonoBehaviour
     {
-        bool firstIsPlaying = false;
- 
         [SerializeField] AudioClip themeToBeginWith;
         AudioClip interruptedTheme;
 
@@ -22,7 +20,7 @@ namespace Pkmn.Overworld.Runtime
 
         AudioSource CurrentlyPlaying()
         {
-            return GetComponentsInChildren<AudioSource>()[firstIsPlaying ? 0 : 1];
+            return GetComponentsInChildren<AudioSource>()[0];
         }
 
         public void PlayInterrupting(AudioClip theme)
@@ -30,7 +28,6 @@ namespace Pkmn.Overworld.Runtime
             interruptedTheme = CurrentlyPlaying().clip;
             Debug.Log(interruptedTheme.name);
             SwapClipWith(theme);
-            firstIsPlaying = !firstIsPlaying;
         }
 
         public void ResumeAfterInterruption()
@@ -45,39 +42,32 @@ namespace Pkmn.Overworld.Runtime
         public void Play(AudioClip theme)
         {
             CrossFadeWith(theme);
-            firstIsPlaying = !firstIsPlaying;
         }
 
         void SwapClipWith(AudioClip theme)
         {
-            SourceToFadeOut().volume = 0;
-            SourceToFadeIn().volume = 1;
-            
             SourceToFadeIn().clip = theme;
             SourceToFadeIn().Play();
         }
         
         void CrossFadeWith(AudioClip theme)
         {
-            SourceToFadeOut().DOFade(0, 1f);
-
-            SourceToFadeIn().volume = 1;
-            SourceToFadeIn().clip = theme;
-            SourceToFadeIn().PlayDelayed(1);
+            SourceToFadeOut().DOFade(0, 1f).OnComplete(() =>
+            {
+                SourceToFadeIn().volume = 1;
+                SourceToFadeIn().clip = theme;
+                SourceToFadeIn().Play();
+            });
         }
 
         AudioSource SourceToFadeIn()
         {
-            return firstIsPlaying
-                ? GetComponentsInChildren<AudioSource>().Last()
-                : GetComponentsInChildren<AudioSource>().First();
+            return GetComponentsInChildren<AudioSource>().First();
         }
 
         AudioSource SourceToFadeOut()
         {
-            return firstIsPlaying
-                ? GetComponentsInChildren<AudioSource>().First()
-                : GetComponentsInChildren<AudioSource>().Last();
+            return GetComponentsInChildren<AudioSource>().First();
         }
     }
 }
