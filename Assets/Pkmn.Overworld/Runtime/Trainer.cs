@@ -14,7 +14,12 @@ namespace Pkmn.Overworld.Runtime
             FindObjectOfType<Red>().JustMoved += LookForRed;
             GetComponent<Turn>().JustTurned += LookForRed;
         }
-
+        void OnDestroy()
+        {
+            FindObjectOfType<Red>().JustMoved -= LookForRed;
+            GetComponent<Turn>().JustTurned -= LookForRed;
+        }  
+        
         public void Reply(Vector2Int towards)
         {
             GetComponent<Turn>().LookTowards(towards);
@@ -39,6 +44,10 @@ namespace Pkmn.Overworld.Runtime
         {
             FindObjectOfType<Popup>().Say(conversation);
             FindObjectOfType<Music>().PlayInterrupting(challengeTheme);
+            Destroy(this);
         }
+
+             
+        
     }
 }
