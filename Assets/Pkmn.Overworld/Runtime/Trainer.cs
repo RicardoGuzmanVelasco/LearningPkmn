@@ -19,7 +19,8 @@ namespace Pkmn.Overworld.Runtime
         
         void OnDestroy()
         {
-            FindObjectOfType<Red>().JustMoved -= LookForRed;
+            if (FindObjectOfType<Red>())
+                FindObjectOfType<Red>().JustMoved -= LookForRed;
             GetComponent<Turn>().JustTurned -= LookForRed;
         }  
         
