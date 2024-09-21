@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Pkmn.Overworld.Runtime
 {
@@ -13,7 +14,9 @@ namespace Pkmn.Overworld.Runtime
         {
             FindObjectOfType<Red>().JustMoved += LookForRed;
             GetComponent<Turn>().JustTurned += LookForRed;
+            Assert.IsNotNull(GetComponent<Npc>());
         }
+        
         void OnDestroy()
         {
             FindObjectOfType<Red>().JustMoved -= LookForRed;
