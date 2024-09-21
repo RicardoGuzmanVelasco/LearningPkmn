@@ -54,6 +54,8 @@ namespace Pkmn.Overworld.Runtime
             FindObjectOfType<Input>().enabled = true;
             GetComponent<AudioSource>().PlayOneShot(okSound);
             FindObjectOfType<MasterOfPuppets>().EnableFreeWill();
+            
+            FindObjectOfType<Music>().ResumeAfterInterruption();
         }
     }
 }

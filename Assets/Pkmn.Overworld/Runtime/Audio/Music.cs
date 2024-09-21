@@ -10,6 +10,7 @@ namespace Pkmn.Overworld.Runtime
         bool firstIsPlaying = false;
  
         [SerializeField] AudioClip themeToBeginWith;
+        AudioClip interruptedTheme;
 
         void Awake()
         {
@@ -17,13 +18,30 @@ namespace Pkmn.Overworld.Runtime
         }
 
         public bool IsPlaying(AudioClip clip)
-            => GetComponentsInChildren<AudioSource>()[firstIsPlaying ? 0 : 1].clip == clip;
+            => CurrentlyPlaying().clip == clip;
+
+        AudioSource CurrentlyPlaying()
+        {
+            return GetComponentsInChildren<AudioSource>()[firstIsPlaying ? 0 : 1];
+        }
 
         public void PlayInterrupting(AudioClip theme)
         {
+            interruptedTheme = CurrentlyPlaying().clip;
+            Debug.Log(interruptedTheme.name);
             SwapClipWith(theme);
             firstIsPlaying = !firstIsPlaying;
         }
+
+        public void ResumeAfterInterruption()
+        {
+            if (interruptedTheme == null)
+                return;
+            
+            SwapClipWith(interruptedTheme);
+            interruptedTheme = null;
+        }
+        
         public void Play(AudioClip theme)
         {
             CrossFadeWith(theme);
