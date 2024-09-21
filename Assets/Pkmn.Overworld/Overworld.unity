@@ -888,7 +888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d57a2966d74e0c8e078c5dade19d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasMass: 0
+  hasMass: 1
 --- !u!114 &87379163
 MonoBehaviour:
   m_ObjectHideFlags: 0
