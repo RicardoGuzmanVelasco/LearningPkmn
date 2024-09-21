@@ -38,10 +38,15 @@ namespace Pkmn.Overworld.Runtime
             GetComponent<Turn>().LookTowards(towards);
             AboutToMove.Invoke();
 
-            if (FindObjectOfType<World>().IsNavigationable(Destiny(towards)))
+            if (CanMove(towards))
                 MoveTo(towards);
             else
                 CouldNotAdvance();
+        }
+
+        public bool CanMove(Vector2Int towards)
+        {
+            return FindObjectOfType<World>().IsNavigationable(Destiny(towards));
         }
 
         async void MoveTo(Vector2Int towards)
