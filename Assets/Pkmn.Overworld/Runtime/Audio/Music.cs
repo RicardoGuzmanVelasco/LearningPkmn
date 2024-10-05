@@ -26,8 +26,13 @@ namespace Pkmn.Overworld.Runtime
         public void PlayInterrupting(AudioClip theme)
         {
             interruptedTheme = CurrentlyPlaying().clip;
-            Debug.Log(interruptedTheme.name);
             SwapClipWith(theme);
+        }
+        
+        public void PlayInterruptingWithSound(AudioClip itemReceivedSound)
+        {
+            PlayInterrupting(itemReceivedSound);
+            CurrentlyPlaying().loop = false;
         }
 
         public void ResumeAfterInterruption()
@@ -37,6 +42,8 @@ namespace Pkmn.Overworld.Runtime
             
             SwapClipWith(interruptedTheme);
             interruptedTheme = null;
+            
+            CurrentlyPlaying().loop = true;
         }
         
         public void Play(AudioClip theme)

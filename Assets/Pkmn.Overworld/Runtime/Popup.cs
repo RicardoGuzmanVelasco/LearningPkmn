@@ -36,7 +36,7 @@ namespace Pkmn.Overworld.Runtime
         {
             if (what.Contains("You received"))
             {
-                FindObjectOfType<Music>().PlayInterrupting(itemReceivedSound);
+                FindObjectOfType<Music>().PlayInterruptingWithSound(itemReceivedSound);
             }
             
             GetComponentInChildren<TMP_Text>().text = what;
