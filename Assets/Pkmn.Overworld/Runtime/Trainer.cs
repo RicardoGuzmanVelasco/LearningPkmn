@@ -48,6 +48,11 @@ namespace Pkmn.Overworld.Runtime
         {
             FindObjectOfType<Popup>().Say(conversation);
             FindObjectOfType<Music>().PlayInterrupting(challengeTheme);
+            NotTrainerAnymore();
+        }
+
+        void NotTrainerAnymore()
+        {
             Destroy(this);
             GetComponent<Npc>().enabled = true;
         }
