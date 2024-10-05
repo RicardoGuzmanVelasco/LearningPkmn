@@ -12,6 +12,7 @@ namespace Pkmn.Overworld.Runtime
     internal class Popup : MonoBehaviour
     {
         [SerializeField] AudioClip okSound;
+        [SerializeField] AudioClip itemReceivedSound;
         Stack<string> whatToSay = new();
         
         void Awake()
@@ -28,12 +29,17 @@ namespace Pkmn.Overworld.Runtime
             
             whatToSay = new(conversation.Reverse());
             
-            klasdj(whatToSay.Pop());
+            UpdateView(whatToSay.Pop());
         }
 
-        void klasdj(string text)
+        void UpdateView(string what)
         {
-            GetComponentInChildren<TMP_Text>().text = text;
+            if (what.Contains("You received"))
+            {
+                FindObjectOfType<Music>().PlayInterrupting(itemReceivedSound);
+            }
+            
+            GetComponentInChildren<TMP_Text>().text = what;
             GetComponent<CanvasGroup>().alpha = 1;
             FindObjectOfType<Input>(true).enabled = false;
             FindObjectOfType<PopupInput>(true).enabled = true;
@@ -50,7 +56,7 @@ namespace Pkmn.Overworld.Runtime
 
         void SayMore()
         {
-            klasdj(whatToSay.Pop());
+            UpdateView(whatToSay.Pop());
             GetComponent<AudioSource>().PlayOneShot(okSound);
         }
 

@@ -3547,6 +3547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   okSound: {fileID: 8300000, guid: ad80140b4401c62498fbbc7894a7016a, type: 3}
+  itemReceivedSound: {fileID: 8300000, guid: 65f06d66fb9caf94fb2bd0c679007e77, type: 3}
 --- !u!225 &544127134
 CanvasGroup:
   m_ObjectHideFlags: 0
