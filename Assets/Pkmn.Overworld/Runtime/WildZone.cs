@@ -5,16 +5,21 @@ namespace Pkmn.Overworld.Runtime
 {
     public class WildZone : MonoBehaviour
     {
+        [SerializeField] AudioClip rattataSound;
+
         void Awake()
         {
             FindObjectOfType<Red>().JustTurned += HandleAmbush;
             FindObjectOfType<Red>().JustMoved += HandleAmbush;
         }
 
-        static void HandleAmbush()
+        void HandleAmbush()
         {
             if (FindObjectOfType<Encounter>().WillHappen())
-                Debug.Log("Un ratolí salvatge va aparèixer!");
+            {
+                GetComponent<AudioSource>().clip = rattataSound;
+                GetComponent<AudioSource>().Play();
+            }
         }
     }
 }
