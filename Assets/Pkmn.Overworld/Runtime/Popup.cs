@@ -28,7 +28,12 @@ namespace Pkmn.Overworld.Runtime
             
             whatToSay = new(conversation.Reverse());
             
-            GetComponentInChildren<TMP_Text>().text = whatToSay.Pop();
+            klasdj(whatToSay.Pop());
+        }
+
+        void klasdj(string text)
+        {
+            GetComponentInChildren<TMP_Text>().text = text;
             GetComponent<CanvasGroup>().alpha = 1;
             FindObjectOfType<Input>(true).enabled = false;
             FindObjectOfType<PopupInput>(true).enabled = true;
@@ -45,7 +50,7 @@ namespace Pkmn.Overworld.Runtime
 
         void SayMore()
         {
-            Say(whatToSay.Pop());
+            klasdj(whatToSay.Pop());
             GetComponent<AudioSource>().PlayOneShot(okSound);
         }
 

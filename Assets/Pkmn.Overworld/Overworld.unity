@@ -2080,7 +2080,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversation:
+  - "Fua t\xFA"
   - "La tecnolog\xECa es l'hostia, eh"
+  - Hehe
 --- !u!114 &290652505
 MonoBehaviour:
   m_ObjectHideFlags: 0
