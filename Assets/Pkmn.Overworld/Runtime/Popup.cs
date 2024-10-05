@@ -24,6 +24,7 @@ namespace Pkmn.Overworld.Runtime
         public void Say(params string[] conversation)
         {
             Assert.IsNotNull(conversation);
+            Assert.IsTrue(conversation.Length > 0);
             
             whatToSay = new(conversation.Reverse());
             

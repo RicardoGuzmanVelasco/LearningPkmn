@@ -9164,8 +9164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversation:
-  - La realitat i la mort...
-  - ...no entenen de sensibilitats.
+  - Possarem llum a la foscor
 --- !u!114 &1476867753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9264,6 +9263,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae4d78e4fef47c884cad96fa6c4f35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conversationBeforeGivingYou:
+  - La realitat i la mort...
+  - ...no entenen de sensibilitats.
+  - "Comen\xE7em"
+  itemName: MO05 Destello
 --- !u!1 &1487158793
 GameObject:
   m_ObjectHideFlags: 0
