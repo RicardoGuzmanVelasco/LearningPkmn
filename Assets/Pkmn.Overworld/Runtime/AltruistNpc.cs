@@ -11,8 +11,10 @@ namespace Pkmn.Overworld.Runtime
         public void Reply(Vector2Int towards)
         {
             var itemMsg = "You received " + itemName + "!";
-            var allMsgs = conversationBeforeGivingYou.Concat(new[] {itemMsg});
+            var allMsgs = conversationBeforeGivingYou.Append(itemMsg);
+            allMsgs = allMsgs.Concat(GetComponent<Npc>().conversation);
             GetComponent<Npc>().Speak(towards, allMsgs.ToArray());
+            
             Destroy(this);
         }
 

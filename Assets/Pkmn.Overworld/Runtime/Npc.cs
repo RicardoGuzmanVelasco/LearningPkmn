@@ -7,7 +7,7 @@ namespace Pkmn.Overworld.Runtime
 {
     public class Npc : MonoBehaviour, IReply
     {
-        [SerializeField] string[] conversation;
+        [SerializeField] public string[] conversation;
 
         public void Reply(Vector2Int towards)
         {
