@@ -8,8 +8,7 @@ namespace Pkmn.Overworld.Runtime
         
         public void Reply(Vector2Int towards)
         {
-            GetComponent<Turn>().LookTowards(towards);
-            Debug.Log("I'm an altruist NPC, I'm giving you a " + itemName);
+            GetComponent<Npc>().Speak(towards, new[] { "I'm an altruist NPC", "I'm giving you a " + itemName });
         }
 
         public Vector2Int Coords => GetComponent<IsInTheWorld>().Coords;

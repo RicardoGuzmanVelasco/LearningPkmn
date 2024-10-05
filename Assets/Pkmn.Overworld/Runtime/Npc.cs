@@ -11,15 +11,15 @@ namespace Pkmn.Overworld.Runtime
 
         public void Reply(Vector2Int towards)
         {
-            Speak(towards);
+            Speak(towards, conversation);
         }
 
         public Vector2Int Coords => GetComponent<IsInTheWorld>().Coords;
 
-        void Speak(Vector2Int towards)
+        internal void Speak(Vector2Int towards, string[] whatToSay)
         {
             GetComponent<Turn>().LookTowards(towards);
-            FindObjectOfType<Popup>().Say(conversation);
+            FindObjectOfType<Popup>().Say(whatToSay);
         }
     }
 }
