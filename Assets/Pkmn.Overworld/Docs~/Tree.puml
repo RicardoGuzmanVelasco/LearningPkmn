@@ -2,7 +2,7 @@
 skin rose
 
 rectangle Input #technology
-rectangle MismosBotonesGirarYMoverse
+rectangle MismosBotonesGirarYMoverse #technology
 rectangle Movimiento #technology
 rectangle AnimarPasos
 rectangle Detección #khaki
@@ -13,24 +13,26 @@ rectangle Pasos
 rectangle Música #technology
 rectangle CambioDeMúsica #technology
 rectangle DesdeElEmpezar #technology
-rectangle DecidirEntreVariasALaVez #implementation
+rectangle DecidirEntreVariasALaVez #technology
 
 rectangle Interaccionables
 rectangle Hablar #technology
-rectangle Conversar
+rectangle Conversar #technology
 rectangle TeMiraElNCP #technology
-rectangle PararElMundo #khaki
+rectangle PararElMundo #technology
 rectangle ElNpcNoPasaLuegoDeTi #technology
 rectangle "¿?" as InteraccionablesFuturo #transparent
 
 rectangle ZonaSalvaje #technology
 rectangle Repelente #technology
 rectangle PorNivel
-rectangle SonidoAlEcharse
+rectangle SonidoAlEcharse #technology
 rectangle Huevo
 rectangle PopupAlFinDelRepelente #technology
 rectangle NPC #technology
-rectangle MovimientoRestringido 
+rectangle MovimientoRestringido #technology
+
+rectangle PedirTurnoConYSinAwait
 
 rectangle Bloqueables #technology
 rectangle SonidoNnngh #technology
@@ -44,7 +46,7 @@ rectangle Mapa
 rectangle CambiarDeZona
 rectangle CambioDeTérminoMunicipal #technology
 
-Input -- MismosBotonesGirarYMoverse
+Input -- MismosBotonesGirarYMoverse 
 Movimiento -- AnimarPasos
 
 Popups -- TypewriterEffect
