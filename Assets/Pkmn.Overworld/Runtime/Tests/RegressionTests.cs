@@ -42,8 +42,6 @@ namespace Pkmn.Overworld.Runtime.Tests
         {
             yield return SceneManager.LoadSceneAsync("Overworld", LoadSceneMode.Single);
 
-            var red = Object.FindObjectOfType<Red>();
-
             for (int i = 0; i < 10; i++)
             {
                 MoveRedTowards(RandomDirection());
