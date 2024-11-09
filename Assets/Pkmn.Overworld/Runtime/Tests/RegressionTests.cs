@@ -65,6 +65,20 @@ namespace Pkmn.Overworld.Runtime.Tests
             Assert.AreEqual(1, howMany);
         }
 
+        [UnityTest]
+        public IEnumerator FASdfsadf()
+        {
+            yield return SceneManager.LoadSceneAsync("OneStepFromCombat", LoadSceneMode.Single);
+
+            int howMany = 0;
+            Object.FindObjectOfType<FASdfasdf>().IsImminent += () => howMany++;
+            MoveRedTowards(Vector2Int.right);
+
+            yield return new WaitForSeconds(1f);
+            
+            Assert.AreEqual(1, howMany);
+        }
+
         static void MoveRedTowards(Vector2Int direction)
         {
             var red = Object.FindObjectOfType<Red>();
