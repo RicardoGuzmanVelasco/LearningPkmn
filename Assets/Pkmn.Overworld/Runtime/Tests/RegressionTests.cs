@@ -52,7 +52,7 @@ namespace Pkmn.Overworld.Runtime.Tests
         }
 
         [UnityTest]
-        public IEnumerator ASDfasf()
+        public IEnumerator RaiseImminentCombat()
         {
             yield return SceneManager.LoadSceneAsync("OneStepFromCombat", LoadSceneMode.Single);
 

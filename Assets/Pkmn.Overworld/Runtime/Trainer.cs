@@ -49,6 +49,7 @@ namespace Pkmn.Overworld.Runtime
             FindObjectOfType<Popup>().Say(conversation);
             FindObjectOfType<Music>().PlayInterrupting(challengeTheme);
             NotTrainerAnymore();
+            FindObjectOfType<FASdfasdf>().ChallengeRed();
         }
 
         void NotTrainerAnymore()
