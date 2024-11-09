@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
+using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
@@ -21,6 +21,20 @@ namespace Pkmn.Overworld.Runtime.Tests
             yield return new WaitForSeconds(1f);
             
             Assert.AreEqual(redPositionBefore, red.transform.position);
+        }
+        
+        [UnityTest]
+        public IEnumerator RedCanGoUp_InStartingPosition()
+        {
+            yield return SceneManager.LoadSceneAsync("Overworld", LoadSceneMode.Single);
+
+            var red = Object.FindObjectOfType<Red>();
+            var redPositionBefore = red.transform.position;
+            red.GetComponent<Move>().MoveTowardsIfIdle(Vector2Int.up);
+            
+            yield return new WaitForSeconds(1f);
+            
+            Assert.That(red.transform.position.y, Is.GreaterThan(redPositionBefore.y));
         }
     }
 }
