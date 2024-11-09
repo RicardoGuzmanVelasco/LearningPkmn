@@ -58,7 +58,13 @@ namespace Pkmn.Overworld.Runtime.Tests
         {
             yield return SceneManager.LoadSceneAsync("OneStepFromCombat", LoadSceneMode.Single);
 
-            MoveRedTowards(Vector2Int.right);
+            int howMany = 0;
+            Object.FindObjectOfType<FASdfasdf>().IsImminent += () => howMany++;
+            MoveRedTowards(Vector2Int.left);
+
+            yield return new WaitForSeconds(1f);
+            
+            Assert.AreEqual(1, howMany);
         }
 
         static void MoveRedTowards(Vector2Int direction)
