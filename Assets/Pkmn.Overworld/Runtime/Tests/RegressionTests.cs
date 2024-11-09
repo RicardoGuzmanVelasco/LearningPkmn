@@ -66,7 +66,7 @@ namespace Pkmn.Overworld.Runtime.Tests
         }
 
         [UnityTest]
-        public IEnumerator FASdfsadf()
+        public IEnumerator SingleCombatShouldBeRaised_WhenThereAreTwoTrainers()
         {
             yield return SceneManager.LoadSceneAsync("OneStepFromCombat", LoadSceneMode.Single);
 
