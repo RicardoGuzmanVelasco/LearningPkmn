@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Pkmn.Overworld/Overworld.unity
     guid: cb2cf436653852a46be70866551422b1
+  - enabled: 1
+    path: Assets/Pkmn.Overworld/OneStepFromCombat.unity
+    guid: 65b9ac87962c53e47a71fdcdb5045dc6
   m_configObjects: {}

@@ -16,8 +16,8 @@ namespace Pkmn.Overworld.Runtime.Tests
 
             var red = Object.FindObjectOfType<Red>();
             var redPositionBefore = red.transform.position;
-            red.GetComponent<Move>().MoveTowardsIfIdle(Vector2Int.down);
-            
+            MoveRedTowards(Vector2Int.down);
+
             yield return new WaitForSeconds(1f);
             
             Assert.AreEqual(redPositionBefore, red.transform.position);
@@ -30,7 +30,7 @@ namespace Pkmn.Overworld.Runtime.Tests
 
             var red = Object.FindObjectOfType<Red>();
             var redPositionBefore = red.transform.position;
-            red.GetComponent<Move>().MoveTowardsIfIdle(Vector2Int.up);
+            MoveRedTowards(Vector2Int.up);
             
             yield return new WaitForSeconds(1f);
             
@@ -46,12 +46,25 @@ namespace Pkmn.Overworld.Runtime.Tests
 
             for (int i = 0; i < 10; i++)
             {
-                var randomDirection = RandomDirection();
-                red.GetComponent<Move>().MoveTowardsIfIdle(randomDirection);
+                MoveRedTowards(RandomDirection());
                 yield return new WaitForSeconds(.1f);
             }
             
             Assert.Pass();
+        }
+
+        [UnityTest]
+        public IEnumerator ASDfasf()
+        {
+            yield return SceneManager.LoadSceneAsync("OneStepFromCombat", LoadSceneMode.Single);
+
+            MoveRedTowards(Vector2Int.right);
+        }
+
+        static void MoveRedTowards(Vector2Int direction)
+        {
+            var red = Object.FindObjectOfType<Red>();
+            red.GetComponent<Move>().MoveTowardsIfIdle(direction);
         }
 
         static Vector2Int RandomDirection()
