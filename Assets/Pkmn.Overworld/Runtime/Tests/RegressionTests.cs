@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Diagnostics.Tracing;
 using JetBrains.Annotations;
 using NUnit.Framework;
 using UnityEngine;
@@ -56,13 +57,13 @@ namespace Pkmn.Overworld.Runtime.Tests
         {
             yield return SceneManager.LoadSceneAsync("OneStepFromCombat", LoadSceneMode.Single);
 
-            int howMany = 0;
-            Object.FindObjectOfType<FASdfasdf>().IsImminent += () => howMany++;
+            var mock = new EventCount();
+            Object.FindObjectOfType<FASdfasdf>().IsImminent += mock.OnceMore;
             MoveRedTowards(Vector2Int.left);
 
             yield return new WaitForSeconds(1f);
             
-            Assert.AreEqual(1, howMany);
+            mock.AssertTimesWere(1);
         }
 
         [UnityTest]
@@ -70,13 +71,13 @@ namespace Pkmn.Overworld.Runtime.Tests
         {
             yield return SceneManager.LoadSceneAsync("OneStepFromCombat", LoadSceneMode.Single);
 
-            int howMany = 0;
-            Object.FindObjectOfType<FASdfasdf>().IsImminent += () => howMany++;
+            var mock = new EventCount();
+            Object.FindObjectOfType<FASdfasdf>().IsImminent += mock.OnceMore;
             MoveRedTowards(Vector2Int.right);
 
             yield return new WaitForSeconds(1f);
             
-            Assert.AreEqual(1, howMany);
+            mock.AssertTimesWere(1);
         }
 
         static void MoveRedTowards(Vector2Int direction)
@@ -97,4 +98,13 @@ namespace Pkmn.Overworld.Runtime.Tests
             };
         }
     }
+}
+
+class EventCount
+{
+    public int Count { get; private set; }
+
+    public void OnceMore() => Count++;
+    
+    public void AssertTimesWere(int howMany) => Assert.AreEqual(howMany, Count);
 }
